@@ -1,45 +1,24 @@
-# Bài thực hành Git, Python và NumPy
+# Git and Python/NumPy practice
 
-## Tư liệu dùng để nộp
+This repository contains work on the [Git introduction](https://github.com/aim-lab/mlh-course-material/tree/master/tutorials/BME-336546-C00-Introduction%20to%20Git) and [Python, NumPy and friends](https://github.com/aim-lab/mlh-course-material/tree/master/tutorials/BME-336546-C01-Python%2C%20numpy%20and%20friends) tutorials. The Git exercises are preserved in separate branches, and the Python code and results are on this `submission` branch.
 
-- `report/index.html`: mở bằng trình duyệt để đọc báo cáo.
-- `report/all_python.html`: toàn bộ 112 ô mã cùng đầu ra thực tế.
-- `python_tutorial.py`: mã Python độc lập, đã chạy kiểm tra.
-- `python_results.txt`, `git_results.txt`, `remote_verified.json`: nhật ký và bằng chứng kiểm tra.
-- `GitTutorial.bundle`: bản sao đầy đủ lịch sử Git, có thể clone lại.
+For the Git exercise, I started with `tmp.txt`, committed it, and checked out the initial commit to see the file disappear. I then created two branches:
 
-Git được thực hiện bằng CLI. Các commit ghi tác giả `Tutorial Automation <tutorial@example.invalid>` để thể hiện rõ đây là thao tác tự động, không giả danh danh tính cá nhân của sinh viên.
+| Branch | What it contains |
+| --- | --- |
+| `master` | `tmp.txt` with `Hello MLH course!` |
+| `example` | The same file with `This is an example` on the next line |
+| `example2` | An empty `tmp2.txt`, plus the change merged from `example` |
 
-## Kết quả Git
+The original tutorial uses GitHub Classroom and Sourcetree. This exercise was done in this repository with Git commands instead. The exercise commits use the local author name `Tutorial Automation`.
 
-Repository: https://github.com/pthaianh2006-rgb/BME-MACHINE-LEARNING
+For the Python tutorial, I ran all 112 code cells with Python 3.12 and NumPy 2.3. The two prediction questions came out as `[0, 1, 2, 1]` for filtering values below 3 and `[0, 1, 1, 2, 3, 6, 8]` for quicksort. I used an existing Python installation, so the Conda and Jupyter setup steps were not part of this run.
 
-- `master`: tmp.txt có dòng `Hello MLH course!`.
-- `example`: tmp.txt có thêm dòng `This is an example`.
-- `example2`: đã merge example, có tmp.txt hai dòng và tmp2.txt rỗng.
-- Đã clone, add, commit, checkout phiên bản ban đầu, tạo nhánh, merge và push ba nhánh; hash remote đã đối chiếu với local.
-- Khi checkout initial commit, tmp.txt biến mất; README.md và .gitignore vẫn còn.
-- Trước add: file untracked; sau add: một file staged. Commit lưu phiên bản local; push mới đưa commit lên remote.
+The main files are:
 
-Không thực hiện GitHub Classroom của khóa học gốc vì sử dụng repository cá nhân do bạn cung cấp. Không cài/chụp Sourcetree; dùng thao tác Git CLI tương đương. Thứ tự push diễn ra sau các thao tác local do cần hoàn tất đăng nhập.
+- [`python_tutorial.py`](python_tutorial.py) — the tutorial examples as a standalone Python script.
+- [`python_results.txt`](python_results.txt) — output from every code cell.
+- [`git_results.txt`](git_results.txt) — the Git commands and their results.
+- [`report/index.html`](report/index.html) — a browsable version of the results.
 
-## Kết quả Python
-
-Chạy thành công 112 ô mã bằng Python 3.12.14 và NumPy 2.3.5; kiểm tra ba kết quả quan trọng bằng assertion. Mã Python độc lập cũng được chạy lại thành công.
-
-- Câu hỏi cell 72: `[0, 1, 2, 1]`.
-- Câu hỏi cell 116: `[0, 1, 1, 2, 3, 6, 8]`.
-- Các thông báo `'monkey'` và thiếu đối số `a3` là minh họa lỗi đã được try/except bắt trong mã gốc.
-- Bỏ CSS dành riêng cho notebook; thay `np.int` đã bị loại bỏ bằng `int`; hiển thị biểu thức cuối qua `_show`; seed ngẫu nhiên 42.
-- Dùng Python có sẵn. Chưa tạo môi trường Conda/chạy Jupyter. `environment.yml` là cấu hình tùy chọn để tự tạo môi trường, không phải bằng chứng đã cài.
-
-Chạy lại: `python python_tutorial.py` (cần NumPy theo requirements.txt).
-Để chạy lại kèm nhật ký có cấu trúc: `python run_python.py`.
-Không chạy lại `run_git.py` trên repository đã có bài: script này dành cho bản clone trống ban đầu.
-
-## Nguồn
-
-- https://github.com/aim-lab/mlh-course-material/tree/master/tutorials/BME-336546-C00-Introduction%20to%20Git
-- https://github.com/aim-lab/mlh-course-material/tree/master/tutorials/BME-336546-C01-Python%2C%20numpy%20and%20friends
-
-Nguồn notebook GitHub được lưu dưới dạng JSON chỉ để đọc. Không chỉnh sửa hoặc tạo file .ipynb của người dùng.
+To run the Python script locally, install the dependency in `requirements.txt`, then run `python python_tutorial.py`.
