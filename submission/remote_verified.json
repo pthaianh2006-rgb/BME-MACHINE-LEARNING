@@ -1,0 +1,14 @@
+[
+  {
+    "command": "git ls-remote --heads origin",
+    "output": "207118990d9f858c4b259a42e2d353753ecf58a3\trefs/heads/example\n1b1aaeed80441e51d0b73a58a4a5918afcd97527\trefs/heads/example2\n92b65cee4b997b0833b82f98ff036e00603cc6bd\trefs/heads/master\n"
+  },
+  {
+    "command": "git branch -vv",
+    "output": "  example  2071189 [origin/example] Add example line on example branch\n* example2 1b1aaee [origin/example2] Merge example into example2\n  master   92b65ce [origin/master] Add tmp.txt greeting\n"
+  },
+  {
+    "command": "git log --graph --oneline --all --decorate",
+    "output": "*   1b1aaee (HEAD -> example2, origin/example2) Merge example into example2\n|\\  \n| * 2071189 (origin/example, example) Add example line on example branch\n* | 9144666 Add empty tmp2.txt on example2 branch\n|/  \n* 92b65ce (origin/master, master) Add tmp.txt greeting\n* e0ac946 Initial commit\n"
+  }
+]

@@ -1,0 +1,8 @@
+# Optional Conda environment specification. Not installed in this run.
+name: bm-336546
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - numpy=2.3.5
+  - jupyterlab

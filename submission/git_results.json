@@ -1,0 +1,147 @@
+[
+  {
+    "command": "git config user.name Tutorial Automation",
+    "output": "",
+    "exit_code": 0
+  },
+  {
+    "command": "git config user.email tutorial@example.invalid",
+    "output": "",
+    "exit_code": 0
+  },
+  {
+    "command": "git config core.autocrlf false",
+    "output": "",
+    "exit_code": 0
+  },
+  {
+    "command": "git checkout -b master",
+    "output": "Switched to a new branch 'master'\n",
+    "exit_code": 0
+  },
+  {
+    "command": "git add README.md .gitignore",
+    "output": "",
+    "exit_code": 0
+  },
+  {
+    "command": "git commit -m Initial commit",
+    "output": "[master (root-commit) e0ac946] Initial commit\n 2 files changed, 8 insertions(+)\n create mode 100644 .gitignore\n create mode 100644 README.md\n",
+    "exit_code": 0
+  },
+  {
+    "command": "git rev-parse HEAD",
+    "output": "e0ac946683873bd23da5180ca7fb03915991445d\n",
+    "exit_code": 0
+  },
+  {
+    "command": "git status --short",
+    "output": "?? tmp.txt\n",
+    "exit_code": 0
+  },
+  {
+    "command": "git add tmp.txt",
+    "output": "",
+    "exit_code": 0
+  },
+  {
+    "command": "git status --short",
+    "output": "A  tmp.txt\n",
+    "exit_code": 0
+  },
+  {
+    "command": "git commit -m Add tmp.txt greeting",
+    "output": "[master 92b65ce] Add tmp.txt greeting\n 1 file changed, 1 insertion(+)\n create mode 100644 tmp.txt\n",
+    "exit_code": 0
+  },
+  {
+    "command": "git checkout --detach e0ac946683873bd23da5180ca7fb03915991445d",
+    "output": "HEAD is now at e0ac946 Initial commit\n",
+    "exit_code": 0
+  },
+  {
+    "command": "Observation",
+    "output": "At initial commit: tmp.txt exists = False; README.md and .gitignore remain.",
+    "exit_code": 0
+  },
+  {
+    "command": "git checkout master",
+    "output": "Previous HEAD position was e0ac946 Initial commit\nSwitched to branch 'master'\n",
+    "exit_code": 0
+  },
+  {
+    "command": "git checkout -b example",
+    "output": "Switched to a new branch 'example'\n",
+    "exit_code": 0
+  },
+  {
+    "command": "git add tmp.txt",
+    "output": "",
+    "exit_code": 0
+  },
+  {
+    "command": "git commit -m Add example line on example branch",
+    "output": "[example 2071189] Add example line on example branch\n 1 file changed, 1 insertion(+)\n",
+    "exit_code": 0
+  },
+  {
+    "command": "git show master:tmp.txt",
+    "output": "Hello MLH course!\n",
+    "exit_code": 0
+  },
+  {
+    "command": "git show example:tmp.txt",
+    "output": "Hello MLH course!\nThis is an example\n",
+    "exit_code": 0
+  },
+  {
+    "command": "git checkout master",
+    "output": "Switched to branch 'master'\n",
+    "exit_code": 0
+  },
+  {
+    "command": "git checkout -b example2",
+    "output": "Switched to a new branch 'example2'\n",
+    "exit_code": 0
+  },
+  {
+    "command": "git add tmp2.txt",
+    "output": "",
+    "exit_code": 0
+  },
+  {
+    "command": "git commit -m Add empty tmp2.txt on example2 branch",
+    "output": "[example2 9144666] Add empty tmp2.txt on example2 branch\n 1 file changed, 0 insertions(+), 0 deletions(-)\n create mode 100644 tmp2.txt\n",
+    "exit_code": 0
+  },
+  {
+    "command": "git ls-tree --name-only example2",
+    "output": ".gitignore\nREADME.md\ntmp.txt\ntmp2.txt\n",
+    "exit_code": 0
+  },
+  {
+    "command": "git show example2:tmp.txt",
+    "output": "Hello MLH course!\n",
+    "exit_code": 0
+  },
+  {
+    "command": "git merge example -m Merge example into example2",
+    "output": "Merge made by the 'ort' strategy.\n tmp.txt | 1 +\n 1 file changed, 1 insertion(+)\n",
+    "exit_code": 0
+  },
+  {
+    "command": "git log --graph --oneline --all --decorate",
+    "output": "*   1b1aaee (HEAD -> example2) Merge example into example2\n|\\  \n| * 2071189 (example) Add example line on example branch\n* | 9144666 Add empty tmp2.txt on example2 branch\n|/  \n* 92b65ce (master) Add tmp.txt greeting\n* e0ac946 Initial commit\n",
+    "exit_code": 0
+  },
+  {
+    "command": "git status",
+    "output": "On branch example2\nnothing to commit, working tree clean\n",
+    "exit_code": 0
+  },
+  {
+    "command": "Observation",
+    "output": "Verified: example2 contains two-line tmp.txt and empty tmp2.txt. master retains the one-line greeting.",
+    "exit_code": 0
+  }
+]

@@ -1,0 +1,128 @@
+$ git config user.name Tutorial Automation
+
+
+$ git config user.email tutorial@example.invalid
+
+
+$ git config core.autocrlf false
+
+
+$ git checkout -b master
+Switched to a new branch 'master'
+
+
+$ git add README.md .gitignore
+
+
+$ git commit -m Initial commit
+[master (root-commit) e0ac946] Initial commit
+ 2 files changed, 8 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 README.md
+
+
+$ git rev-parse HEAD
+e0ac946683873bd23da5180ca7fb03915991445d
+
+
+$ git status --short
+?? tmp.txt
+
+
+$ git add tmp.txt
+
+
+$ git status --short
+A  tmp.txt
+
+
+$ git commit -m Add tmp.txt greeting
+[master 92b65ce] Add tmp.txt greeting
+ 1 file changed, 1 insertion(+)
+ create mode 100644 tmp.txt
+
+
+$ git checkout --detach e0ac946683873bd23da5180ca7fb03915991445d
+HEAD is now at e0ac946 Initial commit
+
+
+$ Observation
+At initial commit: tmp.txt exists = False; README.md and .gitignore remain.
+
+$ git checkout master
+Previous HEAD position was e0ac946 Initial commit
+Switched to branch 'master'
+
+
+$ git checkout -b example
+Switched to a new branch 'example'
+
+
+$ git add tmp.txt
+
+
+$ git commit -m Add example line on example branch
+[example 2071189] Add example line on example branch
+ 1 file changed, 1 insertion(+)
+
+
+$ git show master:tmp.txt
+Hello MLH course!
+
+
+$ git show example:tmp.txt
+Hello MLH course!
+This is an example
+
+
+$ git checkout master
+Switched to branch 'master'
+
+
+$ git checkout -b example2
+Switched to a new branch 'example2'
+
+
+$ git add tmp2.txt
+
+
+$ git commit -m Add empty tmp2.txt on example2 branch
+[example2 9144666] Add empty tmp2.txt on example2 branch
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 tmp2.txt
+
+
+$ git ls-tree --name-only example2
+.gitignore
+README.md
+tmp.txt
+tmp2.txt
+
+
+$ git show example2:tmp.txt
+Hello MLH course!
+
+
+$ git merge example -m Merge example into example2
+Merge made by the 'ort' strategy.
+ tmp.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+
+$ git log --graph --oneline --all --decorate
+*   1b1aaee (HEAD -> example2) Merge example into example2
+|\  
+| * 2071189 (example) Add example line on example branch
+* | 9144666 Add empty tmp2.txt on example2 branch
+|/  
+* 92b65ce (master) Add tmp.txt greeting
+* e0ac946 Initial commit
+
+
+$ git status
+On branch example2
+nothing to commit, working tree clean
+
+
+$ Observation
+Verified: example2 contains two-line tmp.txt and empty tmp2.txt. master retains the one-line greeting.

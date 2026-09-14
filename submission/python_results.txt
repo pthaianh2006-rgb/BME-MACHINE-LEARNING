@@ -1,0 +1,1085 @@
+CELL 9 | Hierarchy in Python: packages, modules and virtual environments
+
+# Several options to import python standard library
+import sys
+import random
+import math as mt
+from math import ceil as ce
+
+print(f'A random number in [3 9] for exapmle is: ', random.uniform(3,9))
+print(mt.pi)
+p = 2.4
+print(mt.floor(p))
+print(ce(p))
+OUTPUT:
+A random number in [3 9] for exapmle is:  6.836560790747303
+3.141592653589793
+2
+3
+
+CELL 19 | Numbers
+x = 3
+print(x, type(x))
+OUTPUT:
+3 <class 'int'>
+
+CELL 20 | Numbers
+x = 5
+print(x)
+x += 1
+print(x)
+x -= 2
+print(x)
+x *= 8
+print(x)
+x /= 3
+print(x)
+x //= 4 # Floor division
+print(x)
+OUTPUT:
+5
+6
+4
+32
+10.666666666666666
+2.0
+
+CELL 24 | Booleans
+t, f = True, False
+OUTPUT:
+
+CELL 26 | Booleans
+print(t and f) # Logical AND
+print(t or f ) # Logical OR
+print(not t  ) # Logical NOT
+print(t != f ) # Logical XOR
+OUTPUT:
+False
+True
+False
+True
+
+CELL 28 | Strings
+hello = 'hello'   # String literals can use single quotes
+world = "world"   # or double quotes; it does not matter.
+combined = '"hello world"'  # it can be used to print " " or ' '
+print(combined)
+hello, combined, len(hello)
+OUTPUT:
+"hello world"
+('hello', '"hello world"', 5)
+
+CELL 29 | Strings
+# String concatenation
+'aaa ' + 'bbb'
+OUTPUT:
+'aaa bbb'
+
+CELL 31 | Strings
+s = 'hello'
+a = [1,2,3]
+
+# sprintf style string formatting
+print('%s %s: pi=%.5f' % (s, a, mt.pi))
+
+# format function:
+print("{} {}: pi={:.5f}".format(s, a, mt.pi))
+
+# formatting with f-string literals (python 3.6+)
+print(f'{s} {a}: pi={mt.pi:.5f}')
+OUTPUT:
+hello [1, 2, 3]: pi=3.14159
+hello [1, 2, 3]: pi=3.14159
+hello [1, 2, 3]: pi=3.14159
+
+CELL 33 | Strings
+s = "hello"
+print(s.capitalize() ) # Capitalize a string; prints "Hello"
+print(s.upper()      ) # Convert a string to uppercase; prints "HELLO"
+print(s.rjust(7)     ) # Right-justify a string, padding with spaces; prints "  hello"
+print(s.center(7)    ) # Center a string, padding with spaces; prints " hello "
+print(s.replace('l', '(ell)'))  # Replace all instances of one substring with another
+print('  world '.strip())  # Strip leading and trailing whitespace; prints "world"
+OUTPUT:
+Hello
+HELLO
+  hello
+ hello 
+he(ell)(ell)o
+world
+
+CELL 39 | Lists
+xs = [3, 1, 2]   # Create a list
+print(xs)
+print(xs[2], xs[-1]) # Negative indices count from the end of the list; prints "2"
+OUTPUT:
+[3, 1, 2]
+2 2
+
+CELL 41 | Lists
+print(xs + [4, 5, 9])
+print(3 * xs) 
+OUTPUT:
+[3, 1, 2, 4, 5, 9]
+[3, 1, 2, 3, 1, 2, 3, 1, 2]
+
+CELL 42 | Lists
+xs[2] = 'foo'    # Lists can contain elements of different types
+print(xs)
+OUTPUT:
+[3, 1, 'foo']
+
+CELL 43 | Lists
+xs.append('bar') # Add a new element to the end of the list
+print(xs)
+OUTPUT:
+[3, 1, 'foo', 'bar']
+
+CELL 44 | Lists
+x = xs.pop()     # Remove and return the last element of the list (since default value is -1)
+print(x)
+print(xs)
+OUTPUT:
+bar
+[3, 1, 'foo']
+
+CELL 46 | Lists
+x = []
+x = list()
+OUTPUT:
+
+CELL 49 | Slicing
+nums = list(range(5)) # Notice: range(N) starts at 0 and ends with N-1 so the length of the array is N
+nums
+OUTPUT:
+[0, 1, 2, 3, 4]
+
+CELL 50 | Slicing
+nums[2:4]    # Get a slice from index 2 to 4 (exclusive)
+OUTPUT:
+[2, 3]
+
+CELL 51 | Slicing
+nums[2:]     # Get a slice from index 2 to the end
+OUTPUT:
+[2, 3, 4]
+
+CELL 52 | Slicing
+nums[:2]     # Get a slice from the start to index 2 (exclusive)
+OUTPUT:
+[0, 1]
+
+CELL 53 | Slicing
+nums[:]      # Get a slice of the whole list
+OUTPUT:
+[0, 1, 2, 3, 4]
+
+CELL 54 | Slicing
+nums[:-1]    # Slice indices can be negative
+OUTPUT:
+[0, 1, 2, 3]
+
+CELL 55 | Slicing
+nums[0:4:2]  # Can also specify slice step size ([start:end:step_size])
+OUTPUT:
+[0, 2]
+
+CELL 56 | Slicing
+nums[2:4] = [8, 9] # Assign a new sublist to a slice
+nums
+OUTPUT:
+[0, 1, 8, 9, 4]
+
+CELL 57 | Slicing
+# Two methods for deleting elements from a list
+nums[0:1] = []
+del nums[-1]
+nums
+OUTPUT:
+[1, 8, 9]
+
+CELL 60 | Loops
+animals = ['cat', 'dog', 'monkey']
+for animal in animals:
+    print(animal)
+OUTPUT:
+cat
+dog
+monkey
+
+CELL 62 | Loops
+animals = ['cat', 'dog', 'monkey']
+for idx, animal in enumerate(animals):
+    print(f'#{idx+1}: {animal}')
+OUTPUT:
+#1: cat
+#2: dog
+#3: monkey
+
+CELL 65 | List comprehensions
+nums = [0, 1, 2, 3, 4]
+squares = []
+for x in nums:
+    squares.append(x ** 2)
+squares
+OUTPUT:
+[0, 1, 4, 9, 16]
+
+CELL 67 | List comprehensions
+squares = [x ** 2 for x in nums]
+squares
+OUTPUT:
+[0, 1, 4, 9, 16]
+
+CELL 69 | List comprehensions
+even_squares = [x ** 2 for x in nums if x % 2 == 0]
+even_squares
+OUTPUT:
+[0, 4, 16]
+
+CELL 71 | List comprehensions
+nums2 = [-1, 1]
+[x * y for x in nums for y in nums2]
+OUTPUT:
+[0, 0, -1, 1, -2, 2, -3, 3, -4, 4]
+
+CELL 73 | List comprehensions
+arr = [3,6,8,0,1,2,1]
+print([x for x in arr if x < 3]) 
+OUTPUT:
+[0, 1, 2, 1]
+
+CELL 76 | Dictionaries
+d = {'dog': 'cute', 'cat': 'evil'}  # Create a new dictionary with some data
+print(d['cat'])       # Get an entry from a dictionary
+print('cat' in d)     # Check if a dictionary has a given key
+OUTPUT:
+evil
+True
+
+CELL 77 | Dictionaries
+d['fish'] = 'silence'    # Set an entry in a dictionary
+d
+OUTPUT:
+{'dog': 'cute', 'cat': 'evil', 'fish': 'silence'}
+
+CELL 78 | Dictionaries
+# Trying to access a non-existing key raises a KeyError
+try:
+    d['monkey']
+except KeyError as e:
+    print(e, file=sys.stderr)
+OUTPUT:
+'monkey'
+
+CELL 79 | Dictionaries
+print(d.get('monkey', 'rr'))  # Get an element with a default
+print(d.get('fish', 'N/A'))    # Get an element with a default
+OUTPUT:
+rr
+silence
+
+CELL 80 | Dictionaries
+del d['fish']        # Remove an element from a dictionary
+d
+OUTPUT:
+{'dog': 'cute', 'cat': 'evil'}
+
+CELL 81 | Dictionaries
+# Iteration over keys
+d = {'person': 2, 'cat': 4, 'spider': 8}
+for animal in d:
+    print(f'A {animal} has {d[animal]} legs')
+OUTPUT:
+A person has 2 legs
+A cat has 4 legs
+A spider has 8 legs
+
+CELL 82 | Dictionaries
+# Iterate over key-value pairs
+d = {'person': 2, 'cat': 4, 'spider': 8}
+for animal, num_legs in d.items():
+    print(f'A {animal} has {num_legs} legs')
+OUTPUT:
+A person has 2 legs
+A cat has 4 legs
+A spider has 8 legs
+
+CELL 83 | Dictionaries
+# Create a dictionary using the built-in dict() function
+dict(foo=1, bar=2, baz=3)
+OUTPUT:
+{'foo': 1, 'bar': 2, 'baz': 3}
+
+CELL 85 | Dictionaries
+d = {}
+d = dict()
+OUTPUT:
+
+CELL 88 | Dictionary comprehensions
+nums = [0, 1, 2, 3, 4]
+even_num_to_square = {x: x ** 2 for x in nums if x % 2 == 0}
+even_num_to_square
+OUTPUT:
+{0: 0, 2: 4, 4: 16}
+
+CELL 91 | Sets
+animals = {'cat', 'dog'}
+print(animals)
+print('cat' in animals )  # Check if an element is in a set
+print('fish' in animals)  # prints "False"
+OUTPUT:
+{'dog', 'cat'}
+True
+False
+
+CELL 92 | Sets
+animals.add('fish') # Add an element to a set
+print('fish' in animals)
+len(animals) # Number of elements in a set
+OUTPUT:
+True
+3
+
+CELL 93 | Sets
+animals.add('cat')       # Adding an element that is already in the set does nothing
+animals
+OUTPUT:
+{'fish', 'dog', 'cat'}
+
+CELL 95 | Sets
+animals = {'cat', 'dog', 'fish'}
+for idx, animal in enumerate(animals):
+    print(f'#{idx+1}: {animal}')
+OUTPUT:
+#1: fish
+#2: cat
+#3: dog
+
+CELL 97 | Sets
+s = set()
+OUTPUT:
+
+CELL 100 | Set comprehensions
+from math import sqrt
+s = {int(sqrt(x)) for x in range(37)}
+s
+OUTPUT:
+{0, 1, 2, 3, 4, 5, 6}
+
+CELL 103 | Tuples
+tup = (1, 2, 'three')
+tup
+OUTPUT:
+(1, 2, 'three')
+
+CELL 105 | Tuples
+tup[0:1], tup[1:3], tup[-1], len(tup)
+OUTPUT:
+((1,), (2, 'three'), 'three', 3)
+
+CELL 107 | Tuples
+d = {(x, x + 1): x for x in range(10)}  # Create a dictionary with tuple keys
+d
+OUTPUT:
+{(0, 1): 0, (1, 2): 1, (2, 3): 2, (3, 4): 3, (4, 5): 4, (5, 6): 5, (6, 7): 6, (7, 8): 7, (8, 9): 8, (9, 10): 9}
+
+CELL 109 | Tuples
+one, two, three = tup
+print(one)
+print(two)
+print(three)
+OUTPUT:
+1
+2
+three
+
+CELL 111 | Tuples
+t = ()
+t = tuple()
+OUTPUT:
+
+CELL 115 | Functions
+def sign(x):
+    if x > 0:
+        y = 1
+        return 'positive', y
+    elif x < 0:
+        y = -1
+        return 'negative', y
+    else:
+        y = 0
+        return 'zero', y
+
+for x in [-2, 0, 3]:
+    print(sign(x))
+    res, y = sign(x)
+    print(res)
+    print(y)
+OUTPUT:
+('negative', -1)
+negative
+-1
+('zero', 0)
+zero
+0
+('positive', 1)
+positive
+1
+
+CELL 117 | Functions
+def quicksort(arr):
+    if len(arr) <= 1:
+        return arr
+    pivot = arr[len(arr) // 2]
+    left = [x for x in arr if x < pivot]
+    middle = [x for x in arr if x == pivot]
+    right = [x for x in arr if x > pivot]
+    return quicksort(left) + middle + quicksort(right)
+OUTPUT:
+
+CELL 118 | Functions
+print(quicksort(arr))
+OUTPUT:
+[0, 1, 1, 2, 3, 6, 8]
+
+CELL 120 | Functions
+def hello(name, loud=False):
+    if loud:
+        print('HELLO, %s' % name.upper())
+    else:
+        print('Hello, %s!' % name)
+
+hello('Bob')
+hello('Fred', loud=True)
+OUTPUT:
+Hello, Bob!
+HELLO, FRED
+
+CELL 123 | Small anonymus functions - lambda
+f1 = lambda a, b : a * b
+print(f1(10, 5)) 
+
+f2 = lambda x:'mom' in x
+example = ['kid', 'mom', 'dad']
+print(f2(example))
+
+f3 = lambda x: x.index('kid')
+print(f3(example))
+OUTPUT:
+50
+True
+0
+
+CELL 126 | Positional and Keyword arguments
+def myfunc(a1, a2, a3, *extra_args, kw1='foo', kw2='bar', kw3=3, **extra_kwargs):
+    print(f'Get positional args: {(a1, a2, a3)}')
+    print(f'Get keyword args   : {dict(kw1=kw1, kw2=kw2, kw3=kw3)}')
+    print(f'Get extra positional args: {extra_args}')
+    print(f'Get extra keyword args: {extra_kwargs}')
+OUTPUT:
+
+CELL 128 | Positional and Keyword arguments
+myfunc(1, 2, 3, 4, 5, 6)
+OUTPUT:
+Get positional args: (1, 2, 3)
+Get keyword args   : {'kw1': 'foo', 'kw2': 'bar', 'kw3': 3}
+Get extra positional args: (4, 5, 6)
+Get extra keyword args: {}
+
+CELL 129 | Positional and Keyword arguments
+my_args = [1, 2, 3, 4, 5]
+myfunc(*my_args)
+OUTPUT:
+Get positional args: (1, 2, 3)
+Get keyword args   : {'kw1': 'foo', 'kw2': 'bar', 'kw3': 3}
+Get extra positional args: (4, 5)
+Get extra keyword args: {}
+
+CELL 130 | Positional and Keyword arguments
+myfunc(1, 2, 3, kw3=3, kw2=2, dog='cute') # notice that it is possible to replace optional keyword arguments locations
+OUTPUT:
+Get positional args: (1, 2, 3)
+Get keyword args   : {'kw1': 'foo', 'kw2': 2, 'kw3': 3}
+Get extra positional args: ()
+Get extra keyword args: {'dog': 'cute'}
+
+CELL 131 | Positional and Keyword arguments
+my_kwargs = dict(kw1=1, kw2=2, kw3=3, kw4=4)
+myfunc(1, 2, 3, **my_kwargs)
+OUTPUT:
+Get positional args: (1, 2, 3)
+Get keyword args   : {'kw1': 1, 'kw2': 2, 'kw3': 3}
+Get extra positional args: ()
+Get extra keyword args: {'kw4': 4}
+
+CELL 133 | Positional and Keyword arguments
+try:
+    myfunc(1,2)
+except TypeError as e:
+    print(e, file=sys.stderr)
+OUTPUT:
+myfunc() missing 1 required positional argument: 'a3'
+
+CELL 135 | Classes
+class Greeter:
+    # Constructor
+    def __init__(self, name):
+        self.name = name  # Create an instance variable
+
+    # Instance method
+    def greet(self, loud=False):
+        if loud:
+            print('HELLO, %s!' % self.name.upper())
+            self.m = 1
+        else:
+            print('Hello, %s' % self.name)
+            self.m = 0
+            
+    def greetback(self):
+        if self.m == 1:
+            print('HELLO TO YOU TOO!')
+
+g = Greeter('Fred')  # Construct an instance of the Greeter class
+g.greet()            # Call an instance method
+g.greetback()
+g.greet(loud=True)   # Call an instance method
+g.greetback()
+OUTPUT:
+Hello, Fred
+HELLO, FRED!
+HELLO TO YOU TOO!
+
+CELL 138 | Numpy
+import numpy as np
+OUTPUT:
+
+CELL 142 | Arrays
+a = np.array([1, 2, 3])  # Create a rank 1 array
+print(f'shape={a.shape},   a[1]={a[1]},   type={type(a)}')
+
+a[0] = 5                 # Change an element of the array
+a
+OUTPUT:
+shape=(3,),   a[1]=2,   type=<class 'numpy.ndarray'>
+array([5, 2, 3])
+
+CELL 143 | Arrays
+b = np.array([[1,2,3],[4,5,6]])   # Create a rank 2 array
+print(b)
+print('shape =', b.shape)
+OUTPUT:
+[[1 2 3]
+ [4 5 6]]
+shape = (2, 3)
+
+CELL 144 | Arrays
+b[0, 0], b[0, 1], b[1, 0]
+OUTPUT:
+(np.int64(1), np.int64(2), np.int64(4))
+
+CELL 146 | Arrays
+np.zeros((2,2))  # Create an array of all zeros
+OUTPUT:
+array([[0., 0.],
+       [0., 0.]])
+
+CELL 147 | Arrays
+np.zeros_like(b)  # Create an array of zeors with the same shape as b
+OUTPUT:
+array([[0, 0, 0],
+       [0, 0, 0]])
+
+CELL 148 | Arrays
+np.ones((10,1))   # Create an array of all ones
+OUTPUT:
+array([[1.],
+       [1.],
+       [1.],
+       [1.],
+       [1.],
+       [1.],
+       [1.],
+       [1.],
+       [1.],
+       [1.]])
+
+CELL 149 | Arrays
+np.full((3,3), 7.2) # Create a constant array
+OUTPUT:
+array([[7.2, 7.2, 7.2],
+       [7.2, 7.2, 7.2],
+       [7.2, 7.2, 7.2]])
+
+CELL 150 | Arrays
+np.eye(4, dtype=int) # Create an identity matrix of integers
+OUTPUT:
+array([[1, 0, 0, 0],
+       [0, 1, 0, 0],
+       [0, 0, 1, 0],
+       [0, 0, 0, 1]])
+
+CELL 151 | Arrays
+t = np.random.random((4,4,3)) # Create a 3d-array filled with random values
+t
+OUTPUT:
+array([[[0.37454012, 0.95071431, 0.73199394],
+        [0.59865848, 0.15601864, 0.15599452],
+        [0.05808361, 0.86617615, 0.60111501],
+        [0.70807258, 0.02058449, 0.96990985]],
+
+       [[0.83244264, 0.21233911, 0.18182497],
+        [0.18340451, 0.30424224, 0.52475643],
+        [0.43194502, 0.29122914, 0.61185289],
+        [0.13949386, 0.29214465, 0.36636184]],
+
+       [[0.45606998, 0.78517596, 0.19967378],
+        [0.51423444, 0.59241457, 0.04645041],
+        [0.60754485, 0.17052412, 0.06505159],
+        [0.94888554, 0.96563203, 0.80839735]],
+
+       [[0.30461377, 0.09767211, 0.68423303],
+        [0.44015249, 0.12203823, 0.49517691],
+        [0.03438852, 0.9093204 , 0.25877998],
+        [0.66252228, 0.31171108, 0.52006802]]])
+
+CELL 152 | Arrays
+t[1,1,2]
+OUTPUT:
+np.float64(0.5247564316322378)
+
+CELL 154 | Rank-1 Arrays
+# A rank-1 array
+a1 = np.array([1,2,3])
+print(f'\n a1 {a1.shape}:\n', a1)
+
+# A column vector (1 for column and -1 for rows (-1 tells python 'derive it by yourself'))
+a_col = a1.reshape(-1, 1)
+print(f'\n a_col {a_col.shape}:\n', a_col)
+
+# A row vector (1 for row and -1 for columns)
+a_row = a1.reshape(1, -1)
+print(f'\n a_row {a_row.shape}=\n', a_row)
+OUTPUT:
+
+ a1 (3,):
+ [1 2 3]
+
+ a_col (3, 1):
+ [[1]
+ [2]
+ [3]]
+
+ a_row (1, 3)=
+ [[1 2 3]]
+
+CELL 156 | Rank-1 Arrays
+print('\n a1 * a1 =', np.dot(a1, a1))  # or a1 @ a1
+
+print('\n a_row * a1 =', a_row @ a1)
+
+print('\n a1 * a_col =', a1 @ a_col)
+
+print('\n a_row * a_col =', a_row @ a_col)
+
+print('\n a_col * a_row =\n', a_col @ a_row)
+
+OUTPUT:
+
+ a1 * a1 = 14
+
+ a_row * a1 = [14]
+
+ a1 * a_col = [14]
+
+ a_row * a_col = [[14]]
+
+ a_col * a_row =
+ [[1 2 3]
+ [2 4 6]
+ [3 6 9]]
+
+CELL 160 | Slicing
+import numpy as np
+a = np.array([[1,2,3,4], [5,6,7,8], [9,10,11,12]])
+a
+OUTPUT:
+array([[ 1,  2,  3,  4],
+       [ 5,  6,  7,  8],
+       [ 9, 10, 11, 12]])
+
+CELL 161 | Slicing
+b = a[:2, 1:3]
+print(b)
+OUTPUT:
+[[2 3]
+ [6 7]]
+
+CELL 163 | Slicing
+b[0, 0] = 77777
+a
+OUTPUT:
+array([[    1, 77777,     3,     4],
+       [    5,     6,     7,     8],
+       [    9,    10,    11,    12]])
+
+CELL 165 | Slicing
+a = np.array([[1,2,3,4], [5,6,7,8], [9,10,11,12]])
+a
+OUTPUT:
+array([[ 1,  2,  3,  4],
+       [ 5,  6,  7,  8],
+       [ 9, 10, 11, 12]])
+
+CELL 166 | Slicing
+b = a[:2, 1:3]
+b = 2*b
+print(b)
+OUTPUT:
+[[ 4  6]
+ [12 14]]
+
+CELL 167 | Slicing
+b[0, 0] = 77777
+a
+OUTPUT:
+array([[ 1,  2,  3,  4],
+       [ 5,  6,  7,  8],
+       [ 9, 10, 11, 12]])
+
+CELL 169 | Slicing
+a = np.array([[1,2,3,4], [5,6,7,8], [9,10,11,12]])
+a
+OUTPUT:
+array([[ 1,  2,  3,  4],
+       [ 5,  6,  7,  8],
+       [ 9, 10, 11, 12]])
+
+CELL 171 | Slicing
+row_r1 = a[1, :]    # Rank 1 view of the second row of a  
+row_r2 = a[1:2, :]  # Rank 2 view of the second row of a
+row_r3 = a[[1], :]  # Rank 2 view of the second row of a
+
+print(row_r1, 'shape=', row_r1.shape)
+print(row_r2, 'shape=', row_r2.shape)
+print(row_r3, 'shape=', row_r3.shape)
+OUTPUT:
+[5 6 7 8] shape= (4,)
+[[5 6 7 8]] shape= (1, 4)
+[[5 6 7 8]] shape= (1, 4)
+
+CELL 172 | Slicing
+# We can make the same distinction when accessing columns of an array:
+col_r1 = a[:, 1]
+col_r2 = a[:, 1:2]
+
+print(col_r1, col_r1.shape)
+print(col_r2, col_r2.shape)
+OUTPUT:
+[ 2  6 10] (3,)
+[[ 2]
+ [ 6]
+ [10]] (3, 1)
+
+CELL 174 | Integer array indexing 
+a = np.array([[1,2], [3, 4], [5, 6]])
+print(a)
+OUTPUT:
+[[1 2]
+ [3 4]
+ [5 6]]
+
+CELL 175 | Integer array indexing 
+# An example of integer array indexing.
+# The returned array will have shape (3,)
+print(a[[0, 1, 2], [0, 1, 0]])
+
+# The above example of integer array indexing is equivalent to this:
+print(np.array([a[0, 0], a[1, 1], a[2, 0]]))
+OUTPUT:
+[1 4 5]
+[1 4 5]
+
+CELL 176 | Integer array indexing 
+# When using integer array indexing, you can reuse the same
+# element from the source array:
+print(a[[0, 0], [1, 1]])
+
+# Equivalent to the previous integer array indexing example
+print(np.array([a[0, 1], a[0, 1]]))
+OUTPUT:
+[2 2]
+[2 2]
+
+CELL 178 | Integer array indexing 
+# Create a new array from which we will select elements
+a = np.array([[1,2,3], [4,5,6], [7,8,9], [10, 11, 12]])
+a
+OUTPUT:
+array([[ 1,  2,  3],
+       [ 4,  5,  6],
+       [ 7,  8,  9],
+       [10, 11, 12]])
+
+CELL 179 | Integer array indexing 
+# Create an array of indices
+b = np.array([0, 2, 0, 1])
+print(np.arange(4))
+print(b)
+
+# Select one element from each row of a using the indices in b
+a[np.arange(4), b]
+OUTPUT:
+[0 1 2 3]
+[0 2 0 1]
+array([ 1,  6,  7, 11])
+
+CELL 180 | Integer array indexing 
+# Mutate one element from each row of a using the indices in b
+a[np.arange(4), b] += 1000
+a
+OUTPUT:
+array([[1001,    2,    3],
+       [   4,    5, 1006],
+       [1007,    8,    9],
+       [  10, 1011,   12]])
+
+CELL 182 | Boolean array indexing
+a = np.array([[1,2], [3, 4], [5, 6]])
+print('a=\n', repr(a))
+bool_idx = (a > 2)  # Find the elements of 'a' that are larger than 2;
+                    # this returns a numpy array of Booleans of the same
+                    # shape as 'a', where each slot of bool_idx tells
+                    # whether that element is greater than 2.
+
+bool_idx
+OUTPUT:
+a=
+ array([[1, 2],
+       [3, 4],
+       [5, 6]])
+array([[False, False],
+       [ True,  True],
+       [ True,  True]])
+
+CELL 183 | Boolean array indexing
+# We use boolean-array-indexing to construct a rank 1 array
+# consisting of the elements of 'a' corresponding to the True values
+# of bool_idx
+a[a>2]
+OUTPUT:
+array([3, 4, 5, 6])
+
+CELL 187 | Datatypes
+x = np.array([1, 2])  # Let numpy choose the datatype
+y = np.array([1.0, 2.0])  # Let numpy choose the datatype
+z = np.array([1, 2], dtype=np.int64)  # Force a particular datatype
+
+x.dtype, y.dtype, z.dtype
+OUTPUT:
+(dtype('int64'), dtype('float64'), dtype('int64'))
+
+CELL 191 | Elementwise operations
+x = np.array([[1,2],[3,4]], dtype=np.float64)
+y = np.array([[5,6],[7,8]], dtype=np.float64)
+
+# Elementwise sum
+print(x + y)
+print(np.add(x, y))
+OUTPUT:
+[[ 6.  8.]
+ [10. 12.]]
+[[ 6.  8.]
+ [10. 12.]]
+
+CELL 192 | Elementwise operations
+# Elementwise difference
+print(x - y)
+print(np.subtract(x, y))
+OUTPUT:
+[[-4. -4.]
+ [-4. -4.]]
+[[-4. -4.]
+ [-4. -4.]]
+
+CELL 193 | Elementwise operations
+# Elementwise product
+print(x * y)
+print(np.multiply(x, y))
+OUTPUT:
+[[ 5. 12.]
+ [21. 32.]]
+[[ 5. 12.]
+ [21. 32.]]
+
+CELL 194 | Elementwise operations
+# Elementwise division
+print(x / y)
+print(np.divide(x, y))
+OUTPUT:
+[[0.2        0.33333333]
+ [0.42857143 0.5       ]]
+[[0.2        0.33333333]
+ [0.42857143 0.5       ]]
+
+CELL 195 | Elementwise operations
+# Elementwise square root
+print(np.sqrt(x))
+OUTPUT:
+[[1.         1.41421356]
+ [1.73205081 2.        ]]
+
+CELL 198 | Inner products
+v = np.array([9,10])
+w = np.array([11, 12])
+
+# Inner product of vectors; both produce 219
+print(v.dot(w))
+print(np.dot(v, w))
+OUTPUT:
+219
+219
+
+CELL 199 | Inner products
+X = np.array([[1,2],[3,4]])
+print('X =\n', repr(X)) # The repr() function returns a printable representation of the given object.
+
+# Matrix-vector product; produce a rank 1 array
+print('Xv =', x.dot(v))
+OUTPUT:
+X =
+ array([[1, 2],
+       [3, 4]])
+Xv = [29. 67.]
+
+CELL 200 | Inner products
+# Matrix-matrix product; produces a rank 2 array
+Y = np.array([[5,6],[7,8]])
+print('Y= \n', repr(Y))
+
+print('XY =\n', X.dot(Y))
+OUTPUT:
+Y= 
+ array([[5, 6],
+       [7, 8]])
+XY =
+ [[19 22]
+ [43 50]]
+
+CELL 202 | Inner products
+x = np.array([[1,2],[3,4]])
+
+print(np.sum(x))  # Compute sum of all elements
+print(np.sum(x, axis=0))  # Compute sum of each column
+print(np.sum(x, axis=1) ) # Compute sum of each row
+OUTPUT:
+10
+[4 6]
+[3 7]
+
+CELL 204 | Inner products
+# Transpose
+print(x)
+print(x.T)
+print(np.transpose(x))
+OUTPUT:
+[[1 2]
+ [3 4]]
+[[1 3]
+ [2 4]]
+[[1 3]
+ [2 4]]
+
+CELL 205 | Inner products
+v = np.array([1,2,3]) # rank 1
+print(v.reshape(1, -1)) # row vector
+print(v.reshape(-1, 1)) # column vector
+OUTPUT:
+[[1 2 3]]
+[[1]
+ [2]
+ [3]]
+
+CELL 208 | Broadcasting
+# We will add the vector v to each row of the matrix x,
+# storing the result in the matrix y
+x = np.array([[1,2,3], [4,5,6], [7,8,9], [10, 11, 12]])
+v = np.array([1, 0, 1])
+y = np.empty_like(x)   # Create an empty matrix with the same shape as x
+
+# Add the vector v to each row of the matrix x with an explicit loop
+for i in range(4):
+    y[i, :] = x[i, :] + v
+
+y
+OUTPUT:
+array([[ 2,  2,  4],
+       [ 5,  5,  7],
+       [ 8,  8, 10],
+       [11, 11, 13]])
+
+CELL 210 | Broadcasting
+vv = np.tile(v, (4, 1))  # Stack 4 copies of v on top of each other
+vv
+OUTPUT:
+array([[1, 0, 1],
+       [1, 0, 1],
+       [1, 0, 1],
+       [1, 0, 1]])
+
+CELL 211 | Broadcasting
+y = x + vv  # Add x and vv elementwise
+y
+OUTPUT:
+array([[ 2,  2,  4],
+       [ 5,  5,  7],
+       [ 8,  8, 10],
+       [11, 11, 13]])
+
+CELL 213 | Broadcasting
+# We will add the vector v to each row of the matrix x,
+# storing the result in the matrix y
+
+x = np.array([[1,2,3], [4,5,6], [7,8,9], [10, 11, 12]])
+v = np.array([1, 0, 1])
+y = x + v  # Add v to each row of x using broadcasting
+
+print('shapes: ', x.shape, v.shape)
+y
+OUTPUT:
+shapes:  (4, 3) (3,)
+array([[ 2,  2,  4],
+       [ 5,  5,  7],
+       [ 8,  8, 10],
+       [11, 11, 13]])
+
+CELL 215 | Broadcasting
+# Compute outer product of vectors
+v = np.array([1,2,3])  # v has a shape of (3,)
+w = np.array([4,5])    # w has a shapeof (2,)
+
+# To compute an outer product, we first reshape v to be a column
+# vector of shape (3, 1); we can then broadcast it against w to yield
+# an output of shape (3, 2), which is the outer product of v and w:
+np.reshape(v, (3, 1)) * w
+OUTPUT:
+array([[ 4,  5],
+       [ 8, 10],
+       [12, 15]])
+
+CELL 216 | Broadcasting
+# Multiply a matrix by a constant:
+# x has shape (2, 3). Numpy treats scalars as arrays of shape ();
+# these can be broadcast together to shape (2, 3), producing the
+# following array:
+print(x)
+x * 2
+OUTPUT:
+[[ 1  2  3]
+ [ 4  5  6]
+ [ 7  8  9]
+ [10 11 12]]
+array([[ 2,  4,  6],
+       [ 8, 10, 12],
+       [14, 16, 18],
+       [20, 22, 24]])

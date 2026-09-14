@@ -1,0 +1,36 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><title>NumPy • Phép toán mảng và ma trận</title><style>body{font-family:Segoe UI,Arial,sans-serif;background:#f1f5f9;color:#18283d;margin:0;font-size:18px}main{max-width:1200px;margin:auto;padding:38px 42px}h1{font-size:34px;margin:12px 0}h2{font-size:23px;margin:18px 0 8px}p{line-height:1.55}header{border-bottom:3px solid #247089;margin-bottom:22px;padding-bottom:12px}.eyebrow{color:#246b80;font-weight:700;letter-spacing:1px;font-size:15px}article{background:white;border:1px solid #d6e1e9;border-radius:8px;padding:18px 22px;margin:14px 0;break-inside:avoid}pre{font-family:Consolas,monospace;font-size:16px;line-height:1.42;white-space:pre-wrap;overflow-wrap:anywhere;margin:8px 0}.output{background:#eaf4ee;border-left:4px solid #388660;padding:12px 15px}label{font-size:13px;font-weight:bold;color:#426072}.note{background:#fff1d6;padding:15px;border-left:4px solid #ad7510}footer{font-size:14px;color:#516273;margin-top:24px}a{color:#196782}table{width:100%;border-collapse:collapse}td,th{text-align:left;padding:12px;border-bottom:1px solid #d6e1e9}code{font-family:Consolas,monospace}</style><main><header><div class="eyebrow">BME • MACHINE LEARNING • THỰC HÀNH</div><h1>NumPy • Phép toán mảng và ma trận</h1><p>Báo cáo từ mã và nhật ký chạy thực tế · 2026-09-14 20:19</p></header><article><h2>Cell 193 · Elementwise operations</h2><label>PYTHON</label><pre>print(x * y)
+print(np.multiply(x, y))</pre><label>KẾT QUẢ</label><pre class="output">[[ 5. 12.]
+ [21. 32.]]
+[[ 5. 12.]
+ [21. 32.]]
+</pre></article><article><h2>Cell 198 · Inner products</h2><label>PYTHON</label><pre>v = np.array([9,10])
+w = np.array([11, 12])
+
+print(v.dot(w))
+print(np.dot(v, w))</pre><label>KẾT QUẢ</label><pre class="output">219
+219
+</pre></article><article><h2>Cell 200 · Inner products</h2><label>PYTHON</label><pre>Y = np.array([[5,6],[7,8]])
+print(&#x27;Y= \n&#x27;, repr(Y))
+
+print(&#x27;XY =\n&#x27;, X.dot(Y))</pre><label>KẾT QUẢ</label><pre class="output">Y= 
+ array([[5, 6],
+       [7, 8]])
+XY =
+ [[19 22]
+ [43 50]]
+</pre></article><article><h2>Cell 202 · Inner products</h2><label>PYTHON</label><pre>x = np.array([[1,2],[3,4]])
+
+print(np.sum(x))  # Compute sum of all elements
+print(np.sum(x, axis=0))  # Compute sum of each column
+print(np.sum(x, axis=1) ) # Compute sum of each row</pre><label>KẾT QUẢ</label><pre class="output">10
+[4 6]
+[3 7]
+</pre></article><article><h2>Cell 204 · Inner products</h2><label>PYTHON</label><pre>print(x)
+print(x.T)
+print(np.transpose(x))</pre><label>KẾT QUẢ</label><pre class="output">[[1 2]
+ [3 4]]
+[[1 3]
+ [2 4]]
+[[1 3]
+ [2 4]]
+</pre></article><footer>Nguồn: <a href="https://github.com/aim-lab/mlh-course-material/tree/master/tutorials/BME-336546-C01-Python%2C%20numpy%20and%20friends">aim-lab/mlh-course-material</a><br>Ảnh chụp trang báo cáo kết quả; thao tác Git được thực hiện bằng CLI, không phải giao diện Sourcetree.</footer></main></html>

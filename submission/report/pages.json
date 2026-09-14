@@ -1,0 +1,58 @@
+[
+  {
+    "file": "01_tong_quan.html",
+    "title": "Kết quả thực hành Git & Python"
+  },
+  {
+    "file": "02_git_commit.html",
+    "title": "Git • Add, commit và phiên bản cũ"
+  },
+  {
+    "file": "03_git_branches.html",
+    "title": "Git • Hai nhánh phát triển"
+  },
+  {
+    "file": "04_git_merge.html",
+    "title": "Git • Merge example vào example2"
+  },
+  {
+    "file": "05_python_basic.html",
+    "title": "Python • Kiểu dữ liệu và chuỗi"
+  },
+  {
+    "file": "06_python_containers.html",
+    "title": "Python • Containers và câu hỏi dự đoán"
+  },
+  {
+    "file": "07_python_functions.html",
+    "title": "Python • Hàm, quicksort và lớp"
+  },
+  {
+    "file": "08_numpy_arrays.html",
+    "title": "NumPy • Mảng và kích thước"
+  },
+  {
+    "file": "09_numpy_indexing.html",
+    "title": "NumPy • View và indexing"
+  },
+  {
+    "file": "10_numpy_math.html",
+    "title": "NumPy • Phép toán mảng và ma trận"
+  },
+  {
+    "file": "11_numpy_broadcasting.html",
+    "title": "NumPy • Broadcasting"
+  },
+  {
+    "file": "all_python.html",
+    "title": "Toàn bộ 112 ô mã Python đã chạy"
+  },
+  {
+    "file": "12_git_push.html",
+    "title": "GitHub • Push và xác minh ba nhánh"
+  },
+  {
+    "file": "index.html",
+    "title": "Tư liệu bài thực hành"
+  }
+]

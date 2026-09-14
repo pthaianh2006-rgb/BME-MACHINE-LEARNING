@@ -1,0 +1,37 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><title>Python • Kiểu dữ liệu và chuỗi</title><style>body{font-family:Segoe UI,Arial,sans-serif;background:#f1f5f9;color:#18283d;margin:0;font-size:18px}main{max-width:1200px;margin:auto;padding:38px 42px}h1{font-size:34px;margin:12px 0}h2{font-size:23px;margin:18px 0 8px}p{line-height:1.55}header{border-bottom:3px solid #247089;margin-bottom:22px;padding-bottom:12px}.eyebrow{color:#246b80;font-weight:700;letter-spacing:1px;font-size:15px}article{background:white;border:1px solid #d6e1e9;border-radius:8px;padding:18px 22px;margin:14px 0;break-inside:avoid}pre{font-family:Consolas,monospace;font-size:16px;line-height:1.42;white-space:pre-wrap;overflow-wrap:anywhere;margin:8px 0}.output{background:#eaf4ee;border-left:4px solid #388660;padding:12px 15px}label{font-size:13px;font-weight:bold;color:#426072}.note{background:#fff1d6;padding:15px;border-left:4px solid #ad7510}footer{font-size:14px;color:#516273;margin-top:24px}a{color:#196782}table{width:100%;border-collapse:collapse}td,th{text-align:left;padding:12px;border-bottom:1px solid #d6e1e9}code{font-family:Consolas,monospace}</style><main><header><div class="eyebrow">BME • MACHINE LEARNING • THỰC HÀNH</div><h1>Python • Kiểu dữ liệu và chuỗi</h1><p>Báo cáo từ mã và nhật ký chạy thực tế · 2026-09-14 20:19</p></header><article><h2>Cell 19 · Numbers</h2><label>PYTHON</label><pre>x = 3
+print(x, type(x))</pre><label>KẾT QUẢ</label><pre class="output">3 &lt;class &#x27;int&#x27;&gt;
+</pre></article><article><h2>Cell 20 · Numbers</h2><label>PYTHON</label><pre>x = 5
+print(x)
+x += 1
+print(x)
+x -= 2
+print(x)
+x *= 8
+print(x)
+x /= 3
+print(x)
+x //= 4 # Floor division
+print(x)</pre><label>KẾT QUẢ</label><pre class="output">5
+6
+4
+32
+10.666666666666666
+2.0
+</pre></article><article><h2>Cell 26 · Booleans</h2><label>PYTHON</label><pre>print(t and f) # Logical AND
+print(t or f ) # Logical OR
+print(not t  ) # Logical NOT
+print(t != f ) # Logical XOR</pre><label>KẾT QUẢ</label><pre class="output">False
+True
+False
+True
+</pre></article><article><h2>Cell 31 · Strings</h2><label>PYTHON</label><pre>s = &#x27;hello&#x27;
+a = [1,2,3]
+
+print(&#x27;%s %s: pi=%.5f&#x27; % (s, a, mt.pi))
+
+print(&quot;{} {}: pi={:.5f}&quot;.format(s, a, mt.pi))
+
+print(f&#x27;{s} {a}: pi={mt.pi:.5f}&#x27;)</pre><label>KẾT QUẢ</label><pre class="output">hello [1, 2, 3]: pi=3.14159
+hello [1, 2, 3]: pi=3.14159
+hello [1, 2, 3]: pi=3.14159
+</pre></article><footer>Nguồn: <a href="https://github.com/aim-lab/mlh-course-material/tree/master/tutorials/BME-336546-C01-Python%2C%20numpy%20and%20friends">aim-lab/mlh-course-material</a><br>Ảnh chụp trang báo cáo kết quả; thao tác Git được thực hiện bằng CLI, không phải giao diện Sourcetree.</footer></main></html>

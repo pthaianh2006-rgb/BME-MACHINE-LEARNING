@@ -1,0 +1,43 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><title>Python • Hàm, quicksort và lớp</title><style>body{font-family:Segoe UI,Arial,sans-serif;background:#f1f5f9;color:#18283d;margin:0;font-size:18px}main{max-width:1200px;margin:auto;padding:38px 42px}h1{font-size:34px;margin:12px 0}h2{font-size:23px;margin:18px 0 8px}p{line-height:1.55}header{border-bottom:3px solid #247089;margin-bottom:22px;padding-bottom:12px}.eyebrow{color:#246b80;font-weight:700;letter-spacing:1px;font-size:15px}article{background:white;border:1px solid #d6e1e9;border-radius:8px;padding:18px 22px;margin:14px 0;break-inside:avoid}pre{font-family:Consolas,monospace;font-size:16px;line-height:1.42;white-space:pre-wrap;overflow-wrap:anywhere;margin:8px 0}.output{background:#eaf4ee;border-left:4px solid #388660;padding:12px 15px}label{font-size:13px;font-weight:bold;color:#426072}.note{background:#fff1d6;padding:15px;border-left:4px solid #ad7510}footer{font-size:14px;color:#516273;margin-top:24px}a{color:#196782}table{width:100%;border-collapse:collapse}td,th{text-align:left;padding:12px;border-bottom:1px solid #d6e1e9}code{font-family:Consolas,monospace}</style><main><header><div class="eyebrow">BME • MACHINE LEARNING • THỰC HÀNH</div><h1>Python • Hàm, quicksort và lớp</h1><p>Báo cáo từ mã và nhật ký chạy thực tế · 2026-09-14 20:19</p></header><article><h2>Cell 117 · Functions</h2><label>PYTHON</label><pre>def quicksort(arr):
+    if len(arr) &lt;= 1:
+        return arr
+    pivot = arr[len(arr) // 2]
+    left = [x for x in arr if x &lt; pivot]
+    middle = [x for x in arr if x == pivot]
+    right = [x for x in arr if x &gt; pivot]
+    return quicksort(left) + middle + quicksort(right)</pre><label>KẾT QUẢ</label><pre class="output">Thực thi thành công; không có đầu ra in.</pre></article><article><h2>Cell 118 · Functions</h2><label>PYTHON</label><pre>print(quicksort(arr))</pre><label>KẾT QUẢ</label><pre class="output">[0, 1, 1, 2, 3, 6, 8]
+</pre></article><article><h2>Cell 123 · Small anonymus functions - lambda</h2><label>PYTHON</label><pre>f1 = lambda a, b : a * b
+print(f1(10, 5)) 
+
+f2 = lambda x:&#x27;mom&#x27; in x
+example = [&#x27;kid&#x27;, &#x27;mom&#x27;, &#x27;dad&#x27;]
+print(f2(example))
+
+f3 = lambda x: x.index(&#x27;kid&#x27;)
+print(f3(example))</pre><label>KẾT QUẢ</label><pre class="output">50
+True
+0
+</pre></article><article><h2>Cell 135 · Classes</h2><label>PYTHON</label><pre>class Greeter:
+    def __init__(self, name):
+        self.name = name  # Create an instance variable
+
+    def greet(self, loud=False):
+        if loud:
+            print(&#x27;HELLO, %s!&#x27; % self.name.upper())
+            self.m = 1
+        else:
+            print(&#x27;Hello, %s&#x27; % self.name)
+            self.m = 0
+            
+    def greetback(self):
+        if self.m == 1:
+            print(&#x27;HELLO TO YOU TOO!&#x27;)
+
+g = Greeter(&#x27;Fred&#x27;)  # Construct an instance of the Greeter class
+g.greet()            # Call an instance method
+g.greetback()
+g.greet(loud=True)   # Call an instance method
+g.greetback()</pre><label>KẾT QUẢ</label><pre class="output">Hello, Fred
+HELLO, FRED!
+HELLO TO YOU TOO!
+</pre></article><p>Câu hỏi cell 116: quicksort sắp xếp tăng dần, giữ các phần tử lặp → <b>[0, 1, 1, 2, 3, 6, 8]</b>.</p><footer>Nguồn: <a href="https://github.com/aim-lab/mlh-course-material/tree/master/tutorials/BME-336546-C01-Python%2C%20numpy%20and%20friends">aim-lab/mlh-course-material</a><br>Ảnh chụp trang báo cáo kết quả; thao tác Git được thực hiện bằng CLI, không phải giao diện Sourcetree.</footer></main></html>

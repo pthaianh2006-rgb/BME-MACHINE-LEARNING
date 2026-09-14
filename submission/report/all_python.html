@@ -1,0 +1,584 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><title>Toàn bộ 112 ô mã Python đã chạy</title><style>body{font-family:Segoe UI,Arial,sans-serif;background:#f1f5f9;color:#18283d;margin:0;font-size:18px}main{max-width:1200px;margin:auto;padding:38px 42px}h1{font-size:34px;margin:12px 0}h2{font-size:23px;margin:18px 0 8px}p{line-height:1.55}header{border-bottom:3px solid #247089;margin-bottom:22px;padding-bottom:12px}.eyebrow{color:#246b80;font-weight:700;letter-spacing:1px;font-size:15px}article{background:white;border:1px solid #d6e1e9;border-radius:8px;padding:18px 22px;margin:14px 0;break-inside:avoid}pre{font-family:Consolas,monospace;font-size:16px;line-height:1.42;white-space:pre-wrap;overflow-wrap:anywhere;margin:8px 0}.output{background:#eaf4ee;border-left:4px solid #388660;padding:12px 15px}label{font-size:13px;font-weight:bold;color:#426072}.note{background:#fff1d6;padding:15px;border-left:4px solid #ad7510}footer{font-size:14px;color:#516273;margin-top:24px}a{color:#196782}table{width:100%;border-collapse:collapse}td,th{text-align:left;padding:12px;border-bottom:1px solid #d6e1e9}code{font-family:Consolas,monospace}</style><main><header><div class="eyebrow">BME • MACHINE LEARNING • THỰC HÀNH</div><h1>Toàn bộ 112 ô mã Python đã chạy</h1><p>Báo cáo từ mã và nhật ký chạy thực tế · 2026-09-14 20:19</p></header><article><h2>Cell 9 · Hierarchy in Python: packages, modules and virtual environments</h2><label>PYTHON</label><pre>
+import sys
+import random
+import math as mt
+from math import ceil as ce
+
+print(f&#x27;A random number in [3 9] for exapmle is: &#x27;, random.uniform(3,9))
+print(mt.pi)
+p = 2.4
+print(mt.floor(p))
+print(ce(p))</pre><label>KẾT QUẢ</label><pre class="output">A random number in [3 9] for exapmle is:  6.836560790747303
+3.141592653589793
+2
+3
+</pre></article><article><h2>Cell 19 · Numbers</h2><label>PYTHON</label><pre>x = 3
+print(x, type(x))</pre><label>KẾT QUẢ</label><pre class="output">3 &lt;class &#x27;int&#x27;&gt;
+</pre></article><article><h2>Cell 20 · Numbers</h2><label>PYTHON</label><pre>x = 5
+print(x)
+x += 1
+print(x)
+x -= 2
+print(x)
+x *= 8
+print(x)
+x /= 3
+print(x)
+x //= 4 # Floor division
+print(x)</pre><label>KẾT QUẢ</label><pre class="output">5
+6
+4
+32
+10.666666666666666
+2.0
+</pre></article><article><h2>Cell 24 · Booleans</h2><label>PYTHON</label><pre>t, f = True, False</pre><label>KẾT QUẢ</label><pre class="output">Thực thi thành công; không có đầu ra in.</pre></article><article><h2>Cell 26 · Booleans</h2><label>PYTHON</label><pre>print(t and f) # Logical AND
+print(t or f ) # Logical OR
+print(not t  ) # Logical NOT
+print(t != f ) # Logical XOR</pre><label>KẾT QUẢ</label><pre class="output">False
+True
+False
+True
+</pre></article><article><h2>Cell 28 · Strings</h2><label>PYTHON</label><pre>hello = &#x27;hello&#x27;   # String literals can use single quotes
+world = &quot;world&quot;   # or double quotes; it does not matter.
+combined = &#x27;&quot;hello world&quot;&#x27;  # it can be used to print &quot; &quot; or &#x27; &#x27;
+print(combined)
+hello, combined, len(hello)</pre><label>KẾT QUẢ</label><pre class="output">&quot;hello world&quot;
+(&#x27;hello&#x27;, &#x27;&quot;hello world&quot;&#x27;, 5)
+</pre></article><article><h2>Cell 29 · Strings</h2><label>PYTHON</label><pre>&#x27;aaa &#x27; + &#x27;bbb&#x27;</pre><label>KẾT QUẢ</label><pre class="output">&#x27;aaa bbb&#x27;
+</pre></article><article><h2>Cell 31 · Strings</h2><label>PYTHON</label><pre>s = &#x27;hello&#x27;
+a = [1,2,3]
+
+print(&#x27;%s %s: pi=%.5f&#x27; % (s, a, mt.pi))
+
+print(&quot;{} {}: pi={:.5f}&quot;.format(s, a, mt.pi))
+
+print(f&#x27;{s} {a}: pi={mt.pi:.5f}&#x27;)</pre><label>KẾT QUẢ</label><pre class="output">hello [1, 2, 3]: pi=3.14159
+hello [1, 2, 3]: pi=3.14159
+hello [1, 2, 3]: pi=3.14159
+</pre></article><article><h2>Cell 33 · Strings</h2><label>PYTHON</label><pre>s = &quot;hello&quot;
+print(s.capitalize() ) # Capitalize a string; prints &quot;Hello&quot;
+print(s.upper()      ) # Convert a string to uppercase; prints &quot;HELLO&quot;
+print(s.rjust(7)     ) # Right-justify a string, padding with spaces; prints &quot;  hello&quot;
+print(s.center(7)    ) # Center a string, padding with spaces; prints &quot; hello &quot;
+print(s.replace(&#x27;l&#x27;, &#x27;(ell)&#x27;))  # Replace all instances of one substring with another
+print(&#x27;  world &#x27;.strip())  # Strip leading and trailing whitespace; prints &quot;world&quot;</pre><label>KẾT QUẢ</label><pre class="output">Hello
+HELLO
+  hello
+ hello 
+he(ell)(ell)o
+world
+</pre></article><article><h2>Cell 39 · Lists</h2><label>PYTHON</label><pre>xs = [3, 1, 2]   # Create a list
+print(xs)
+print(xs[2], xs[-1]) # Negative indices count from the end of the list; prints &quot;2&quot;</pre><label>KẾT QUẢ</label><pre class="output">[3, 1, 2]
+2 2
+</pre></article><article><h2>Cell 41 · Lists</h2><label>PYTHON</label><pre>print(xs + [4, 5, 9])
+print(3 * xs) </pre><label>KẾT QUẢ</label><pre class="output">[3, 1, 2, 4, 5, 9]
+[3, 1, 2, 3, 1, 2, 3, 1, 2]
+</pre></article><article><h2>Cell 42 · Lists</h2><label>PYTHON</label><pre>xs[2] = &#x27;foo&#x27;    # Lists can contain elements of different types
+print(xs)</pre><label>KẾT QUẢ</label><pre class="output">[3, 1, &#x27;foo&#x27;]
+</pre></article><article><h2>Cell 43 · Lists</h2><label>PYTHON</label><pre>xs.append(&#x27;bar&#x27;) # Add a new element to the end of the list
+print(xs)</pre><label>KẾT QUẢ</label><pre class="output">[3, 1, &#x27;foo&#x27;, &#x27;bar&#x27;]
+</pre></article><article><h2>Cell 44 · Lists</h2><label>PYTHON</label><pre>x = xs.pop()     # Remove and return the last element of the list (since default value is -1)
+print(x)
+print(xs)</pre><label>KẾT QUẢ</label><pre class="output">bar
+[3, 1, &#x27;foo&#x27;]
+</pre></article><article><h2>Cell 46 · Lists</h2><label>PYTHON</label><pre>x = []
+x = list()</pre><label>KẾT QUẢ</label><pre class="output">Thực thi thành công; không có đầu ra in.</pre></article><article><h2>Cell 49 · Slicing</h2><label>PYTHON</label><pre>nums = list(range(5)) # Notice: range(N) starts at 0 and ends with N-1 so the length of the array is N
+nums</pre><label>KẾT QUẢ</label><pre class="output">[0, 1, 2, 3, 4]
+</pre></article><article><h2>Cell 50 · Slicing</h2><label>PYTHON</label><pre>nums[2:4]    # Get a slice from index 2 to 4 (exclusive)</pre><label>KẾT QUẢ</label><pre class="output">[2, 3]
+</pre></article><article><h2>Cell 51 · Slicing</h2><label>PYTHON</label><pre>nums[2:]     # Get a slice from index 2 to the end</pre><label>KẾT QUẢ</label><pre class="output">[2, 3, 4]
+</pre></article><article><h2>Cell 52 · Slicing</h2><label>PYTHON</label><pre>nums[:2]     # Get a slice from the start to index 2 (exclusive)</pre><label>KẾT QUẢ</label><pre class="output">[0, 1]
+</pre></article><article><h2>Cell 53 · Slicing</h2><label>PYTHON</label><pre>nums[:]      # Get a slice of the whole list</pre><label>KẾT QUẢ</label><pre class="output">[0, 1, 2, 3, 4]
+</pre></article><article><h2>Cell 54 · Slicing</h2><label>PYTHON</label><pre>nums[:-1]    # Slice indices can be negative</pre><label>KẾT QUẢ</label><pre class="output">[0, 1, 2, 3]
+</pre></article><article><h2>Cell 55 · Slicing</h2><label>PYTHON</label><pre>nums[0:4:2]  # Can also specify slice step size ([start:end:step_size])</pre><label>KẾT QUẢ</label><pre class="output">[0, 2]
+</pre></article><article><h2>Cell 56 · Slicing</h2><label>PYTHON</label><pre>nums[2:4] = [8, 9] # Assign a new sublist to a slice
+nums</pre><label>KẾT QUẢ</label><pre class="output">[0, 1, 8, 9, 4]
+</pre></article><article><h2>Cell 57 · Slicing</h2><label>PYTHON</label><pre>nums[0:1] = []
+del nums[-1]
+nums</pre><label>KẾT QUẢ</label><pre class="output">[1, 8, 9]
+</pre></article><article><h2>Cell 60 · Loops</h2><label>PYTHON</label><pre>animals = [&#x27;cat&#x27;, &#x27;dog&#x27;, &#x27;monkey&#x27;]
+for animal in animals:
+    print(animal)</pre><label>KẾT QUẢ</label><pre class="output">cat
+dog
+monkey
+</pre></article><article><h2>Cell 62 · Loops</h2><label>PYTHON</label><pre>animals = [&#x27;cat&#x27;, &#x27;dog&#x27;, &#x27;monkey&#x27;]
+for idx, animal in enumerate(animals):
+    print(f&#x27;#{idx+1}: {animal}&#x27;)</pre><label>KẾT QUẢ</label><pre class="output">#1: cat
+#2: dog
+#3: monkey
+</pre></article><article><h2>Cell 65 · List comprehensions</h2><label>PYTHON</label><pre>nums = [0, 1, 2, 3, 4]
+squares = []
+for x in nums:
+    squares.append(x ** 2)
+squares</pre><label>KẾT QUẢ</label><pre class="output">[0, 1, 4, 9, 16]
+</pre></article><article><h2>Cell 67 · List comprehensions</h2><label>PYTHON</label><pre>squares = [x ** 2 for x in nums]
+squares</pre><label>KẾT QUẢ</label><pre class="output">[0, 1, 4, 9, 16]
+</pre></article><article><h2>Cell 69 · List comprehensions</h2><label>PYTHON</label><pre>even_squares = [x ** 2 for x in nums if x % 2 == 0]
+even_squares</pre><label>KẾT QUẢ</label><pre class="output">[0, 4, 16]
+</pre></article><article><h2>Cell 71 · List comprehensions</h2><label>PYTHON</label><pre>nums2 = [-1, 1]
+[x * y for x in nums for y in nums2]</pre><label>KẾT QUẢ</label><pre class="output">[0, 0, -1, 1, -2, 2, -3, 3, -4, 4]
+</pre></article><article><h2>Cell 73 · List comprehensions</h2><label>PYTHON</label><pre>arr = [3,6,8,0,1,2,1]
+print([x for x in arr if x &lt; 3]) </pre><label>KẾT QUẢ</label><pre class="output">[0, 1, 2, 1]
+</pre></article><article><h2>Cell 76 · Dictionaries</h2><label>PYTHON</label><pre>d = {&#x27;dog&#x27;: &#x27;cute&#x27;, &#x27;cat&#x27;: &#x27;evil&#x27;}  # Create a new dictionary with some data
+print(d[&#x27;cat&#x27;])       # Get an entry from a dictionary
+print(&#x27;cat&#x27; in d)     # Check if a dictionary has a given key</pre><label>KẾT QUẢ</label><pre class="output">evil
+True
+</pre></article><article><h2>Cell 77 · Dictionaries</h2><label>PYTHON</label><pre>d[&#x27;fish&#x27;] = &#x27;silence&#x27;    # Set an entry in a dictionary
+d</pre><label>KẾT QUẢ</label><pre class="output">{&#x27;dog&#x27;: &#x27;cute&#x27;, &#x27;cat&#x27;: &#x27;evil&#x27;, &#x27;fish&#x27;: &#x27;silence&#x27;}
+</pre></article><article><h2>Cell 78 · Dictionaries</h2><label>PYTHON</label><pre>try:
+    d[&#x27;monkey&#x27;]
+except KeyError as e:
+    print(e, file=sys.stderr)</pre><label>KẾT QUẢ</label><pre class="output">&#x27;monkey&#x27;
+</pre></article><article><h2>Cell 79 · Dictionaries</h2><label>PYTHON</label><pre>print(d.get(&#x27;monkey&#x27;, &#x27;rr&#x27;))  # Get an element with a default
+print(d.get(&#x27;fish&#x27;, &#x27;N/A&#x27;))    # Get an element with a default</pre><label>KẾT QUẢ</label><pre class="output">rr
+silence
+</pre></article><article><h2>Cell 80 · Dictionaries</h2><label>PYTHON</label><pre>del d[&#x27;fish&#x27;]        # Remove an element from a dictionary
+d</pre><label>KẾT QUẢ</label><pre class="output">{&#x27;dog&#x27;: &#x27;cute&#x27;, &#x27;cat&#x27;: &#x27;evil&#x27;}
+</pre></article><article><h2>Cell 81 · Dictionaries</h2><label>PYTHON</label><pre>d = {&#x27;person&#x27;: 2, &#x27;cat&#x27;: 4, &#x27;spider&#x27;: 8}
+for animal in d:
+    print(f&#x27;A {animal} has {d[animal]} legs&#x27;)</pre><label>KẾT QUẢ</label><pre class="output">A person has 2 legs
+A cat has 4 legs
+A spider has 8 legs
+</pre></article><article><h2>Cell 82 · Dictionaries</h2><label>PYTHON</label><pre>d = {&#x27;person&#x27;: 2, &#x27;cat&#x27;: 4, &#x27;spider&#x27;: 8}
+for animal, num_legs in d.items():
+    print(f&#x27;A {animal} has {num_legs} legs&#x27;)</pre><label>KẾT QUẢ</label><pre class="output">A person has 2 legs
+A cat has 4 legs
+A spider has 8 legs
+</pre></article><article><h2>Cell 83 · Dictionaries</h2><label>PYTHON</label><pre>dict(foo=1, bar=2, baz=3)</pre><label>KẾT QUẢ</label><pre class="output">{&#x27;foo&#x27;: 1, &#x27;bar&#x27;: 2, &#x27;baz&#x27;: 3}
+</pre></article><article><h2>Cell 85 · Dictionaries</h2><label>PYTHON</label><pre>d = {}
+d = dict()</pre><label>KẾT QUẢ</label><pre class="output">Thực thi thành công; không có đầu ra in.</pre></article><article><h2>Cell 88 · Dictionary comprehensions</h2><label>PYTHON</label><pre>nums = [0, 1, 2, 3, 4]
+even_num_to_square = {x: x ** 2 for x in nums if x % 2 == 0}
+even_num_to_square</pre><label>KẾT QUẢ</label><pre class="output">{0: 0, 2: 4, 4: 16}
+</pre></article><article><h2>Cell 91 · Sets</h2><label>PYTHON</label><pre>animals = {&#x27;cat&#x27;, &#x27;dog&#x27;}
+print(animals)
+print(&#x27;cat&#x27; in animals )  # Check if an element is in a set
+print(&#x27;fish&#x27; in animals)  # prints &quot;False&quot;</pre><label>KẾT QUẢ</label><pre class="output">{&#x27;dog&#x27;, &#x27;cat&#x27;}
+True
+False
+</pre></article><article><h2>Cell 92 · Sets</h2><label>PYTHON</label><pre>animals.add(&#x27;fish&#x27;) # Add an element to a set
+print(&#x27;fish&#x27; in animals)
+len(animals) # Number of elements in a set</pre><label>KẾT QUẢ</label><pre class="output">True
+3
+</pre></article><article><h2>Cell 93 · Sets</h2><label>PYTHON</label><pre>animals.add(&#x27;cat&#x27;)       # Adding an element that is already in the set does nothing
+animals</pre><label>KẾT QUẢ</label><pre class="output">{&#x27;fish&#x27;, &#x27;dog&#x27;, &#x27;cat&#x27;}
+</pre></article><article><h2>Cell 95 · Sets</h2><label>PYTHON</label><pre>animals = {&#x27;cat&#x27;, &#x27;dog&#x27;, &#x27;fish&#x27;}
+for idx, animal in enumerate(animals):
+    print(f&#x27;#{idx+1}: {animal}&#x27;)</pre><label>KẾT QUẢ</label><pre class="output">#1: fish
+#2: cat
+#3: dog
+</pre></article><article><h2>Cell 97 · Sets</h2><label>PYTHON</label><pre>s = set()</pre><label>KẾT QUẢ</label><pre class="output">Thực thi thành công; không có đầu ra in.</pre></article><article><h2>Cell 100 · Set comprehensions</h2><label>PYTHON</label><pre>from math import sqrt
+s = {int(sqrt(x)) for x in range(37)}
+s</pre><label>KẾT QUẢ</label><pre class="output">{0, 1, 2, 3, 4, 5, 6}
+</pre></article><article><h2>Cell 103 · Tuples</h2><label>PYTHON</label><pre>tup = (1, 2, &#x27;three&#x27;)
+tup</pre><label>KẾT QUẢ</label><pre class="output">(1, 2, &#x27;three&#x27;)
+</pre></article><article><h2>Cell 105 · Tuples</h2><label>PYTHON</label><pre>tup[0:1], tup[1:3], tup[-1], len(tup)</pre><label>KẾT QUẢ</label><pre class="output">((1,), (2, &#x27;three&#x27;), &#x27;three&#x27;, 3)
+</pre></article><article><h2>Cell 107 · Tuples</h2><label>PYTHON</label><pre>d = {(x, x + 1): x for x in range(10)}  # Create a dictionary with tuple keys
+d</pre><label>KẾT QUẢ</label><pre class="output">{(0, 1): 0, (1, 2): 1, (2, 3): 2, (3, 4): 3, (4, 5): 4, (5, 6): 5, (6, 7): 6, (7, 8): 7, (8, 9): 8, (9, 10): 9}
+</pre></article><article><h2>Cell 109 · Tuples</h2><label>PYTHON</label><pre>one, two, three = tup
+print(one)
+print(two)
+print(three)</pre><label>KẾT QUẢ</label><pre class="output">1
+2
+three
+</pre></article><article><h2>Cell 111 · Tuples</h2><label>PYTHON</label><pre>t = ()
+t = tuple()</pre><label>KẾT QUẢ</label><pre class="output">Thực thi thành công; không có đầu ra in.</pre></article><article><h2>Cell 115 · Functions</h2><label>PYTHON</label><pre>def sign(x):
+    if x &gt; 0:
+        y = 1
+        return &#x27;positive&#x27;, y
+    elif x &lt; 0:
+        y = -1
+        return &#x27;negative&#x27;, y
+    else:
+        y = 0
+        return &#x27;zero&#x27;, y
+
+for x in [-2, 0, 3]:
+    print(sign(x))
+    res, y = sign(x)
+    print(res)
+    print(y)</pre><label>KẾT QUẢ</label><pre class="output">(&#x27;negative&#x27;, -1)
+negative
+-1
+(&#x27;zero&#x27;, 0)
+zero
+0
+(&#x27;positive&#x27;, 1)
+positive
+1
+</pre></article><article><h2>Cell 117 · Functions</h2><label>PYTHON</label><pre>def quicksort(arr):
+    if len(arr) &lt;= 1:
+        return arr
+    pivot = arr[len(arr) // 2]
+    left = [x for x in arr if x &lt; pivot]
+    middle = [x for x in arr if x == pivot]
+    right = [x for x in arr if x &gt; pivot]
+    return quicksort(left) + middle + quicksort(right)</pre><label>KẾT QUẢ</label><pre class="output">Thực thi thành công; không có đầu ra in.</pre></article><article><h2>Cell 118 · Functions</h2><label>PYTHON</label><pre>print(quicksort(arr))</pre><label>KẾT QUẢ</label><pre class="output">[0, 1, 1, 2, 3, 6, 8]
+</pre></article><article><h2>Cell 120 · Functions</h2><label>PYTHON</label><pre>def hello(name, loud=False):
+    if loud:
+        print(&#x27;HELLO, %s&#x27; % name.upper())
+    else:
+        print(&#x27;Hello, %s!&#x27; % name)
+
+hello(&#x27;Bob&#x27;)
+hello(&#x27;Fred&#x27;, loud=True)</pre><label>KẾT QUẢ</label><pre class="output">Hello, Bob!
+HELLO, FRED
+</pre></article><article><h2>Cell 123 · Small anonymus functions - lambda</h2><label>PYTHON</label><pre>f1 = lambda a, b : a * b
+print(f1(10, 5)) 
+
+f2 = lambda x:&#x27;mom&#x27; in x
+example = [&#x27;kid&#x27;, &#x27;mom&#x27;, &#x27;dad&#x27;]
+print(f2(example))
+
+f3 = lambda x: x.index(&#x27;kid&#x27;)
+print(f3(example))</pre><label>KẾT QUẢ</label><pre class="output">50
+True
+0
+</pre></article><article><h2>Cell 126 · Positional and Keyword arguments</h2><label>PYTHON</label><pre>def myfunc(a1, a2, a3, *extra_args, kw1=&#x27;foo&#x27;, kw2=&#x27;bar&#x27;, kw3=3, **extra_kwargs):
+    print(f&#x27;Get positional args: {(a1, a2, a3)}&#x27;)
+    print(f&#x27;Get keyword args   : {dict(kw1=kw1, kw2=kw2, kw3=kw3)}&#x27;)
+    print(f&#x27;Get extra positional args: {extra_args}&#x27;)
+    print(f&#x27;Get extra keyword args: {extra_kwargs}&#x27;)</pre><label>KẾT QUẢ</label><pre class="output">Thực thi thành công; không có đầu ra in.</pre></article><article><h2>Cell 128 · Positional and Keyword arguments</h2><label>PYTHON</label><pre>myfunc(1, 2, 3, 4, 5, 6)</pre><label>KẾT QUẢ</label><pre class="output">Get positional args: (1, 2, 3)
+Get keyword args   : {&#x27;kw1&#x27;: &#x27;foo&#x27;, &#x27;kw2&#x27;: &#x27;bar&#x27;, &#x27;kw3&#x27;: 3}
+Get extra positional args: (4, 5, 6)
+Get extra keyword args: {}
+</pre></article><article><h2>Cell 129 · Positional and Keyword arguments</h2><label>PYTHON</label><pre>my_args = [1, 2, 3, 4, 5]
+myfunc(*my_args)</pre><label>KẾT QUẢ</label><pre class="output">Get positional args: (1, 2, 3)
+Get keyword args   : {&#x27;kw1&#x27;: &#x27;foo&#x27;, &#x27;kw2&#x27;: &#x27;bar&#x27;, &#x27;kw3&#x27;: 3}
+Get extra positional args: (4, 5)
+Get extra keyword args: {}
+</pre></article><article><h2>Cell 130 · Positional and Keyword arguments</h2><label>PYTHON</label><pre>myfunc(1, 2, 3, kw3=3, kw2=2, dog=&#x27;cute&#x27;) # notice that it is possible to replace optional keyword arguments locations</pre><label>KẾT QUẢ</label><pre class="output">Get positional args: (1, 2, 3)
+Get keyword args   : {&#x27;kw1&#x27;: &#x27;foo&#x27;, &#x27;kw2&#x27;: 2, &#x27;kw3&#x27;: 3}
+Get extra positional args: ()
+Get extra keyword args: {&#x27;dog&#x27;: &#x27;cute&#x27;}
+</pre></article><article><h2>Cell 131 · Positional and Keyword arguments</h2><label>PYTHON</label><pre>my_kwargs = dict(kw1=1, kw2=2, kw3=3, kw4=4)
+myfunc(1, 2, 3, **my_kwargs)</pre><label>KẾT QUẢ</label><pre class="output">Get positional args: (1, 2, 3)
+Get keyword args   : {&#x27;kw1&#x27;: 1, &#x27;kw2&#x27;: 2, &#x27;kw3&#x27;: 3}
+Get extra positional args: ()
+Get extra keyword args: {&#x27;kw4&#x27;: 4}
+</pre></article><article><h2>Cell 133 · Positional and Keyword arguments</h2><label>PYTHON</label><pre>try:
+    myfunc(1,2)
+except TypeError as e:
+    print(e, file=sys.stderr)</pre><label>KẾT QUẢ</label><pre class="output">myfunc() missing 1 required positional argument: &#x27;a3&#x27;
+</pre></article><article><h2>Cell 135 · Classes</h2><label>PYTHON</label><pre>class Greeter:
+    def __init__(self, name):
+        self.name = name  # Create an instance variable
+
+    def greet(self, loud=False):
+        if loud:
+            print(&#x27;HELLO, %s!&#x27; % self.name.upper())
+            self.m = 1
+        else:
+            print(&#x27;Hello, %s&#x27; % self.name)
+            self.m = 0
+            
+    def greetback(self):
+        if self.m == 1:
+            print(&#x27;HELLO TO YOU TOO!&#x27;)
+
+g = Greeter(&#x27;Fred&#x27;)  # Construct an instance of the Greeter class
+g.greet()            # Call an instance method
+g.greetback()
+g.greet(loud=True)   # Call an instance method
+g.greetback()</pre><label>KẾT QUẢ</label><pre class="output">Hello, Fred
+HELLO, FRED!
+HELLO TO YOU TOO!
+</pre></article><article><h2>Cell 138 · Numpy</h2><label>PYTHON</label><pre>import numpy as np</pre><label>KẾT QUẢ</label><pre class="output">Thực thi thành công; không có đầu ra in.</pre></article><article><h2>Cell 142 · Arrays</h2><label>PYTHON</label><pre>a = np.array([1, 2, 3])  # Create a rank 1 array
+print(f&#x27;shape={a.shape},   a[1]={a[1]},   type={type(a)}&#x27;)
+
+a[0] = 5                 # Change an element of the array
+a</pre><label>KẾT QUẢ</label><pre class="output">shape=(3,),   a[1]=2,   type=&lt;class &#x27;numpy.ndarray&#x27;&gt;
+array([5, 2, 3])
+</pre></article><article><h2>Cell 143 · Arrays</h2><label>PYTHON</label><pre>b = np.array([[1,2,3],[4,5,6]])   # Create a rank 2 array
+print(b)
+print(&#x27;shape =&#x27;, b.shape)</pre><label>KẾT QUẢ</label><pre class="output">[[1 2 3]
+ [4 5 6]]
+shape = (2, 3)
+</pre></article><article><h2>Cell 144 · Arrays</h2><label>PYTHON</label><pre>b[0, 0], b[0, 1], b[1, 0]</pre><label>KẾT QUẢ</label><pre class="output">(np.int64(1), np.int64(2), np.int64(4))
+</pre></article><article><h2>Cell 146 · Arrays</h2><label>PYTHON</label><pre>np.zeros((2,2))  # Create an array of all zeros</pre><label>KẾT QUẢ</label><pre class="output">array([[0., 0.],
+       [0., 0.]])
+</pre></article><article><h2>Cell 147 · Arrays</h2><label>PYTHON</label><pre>np.zeros_like(b)  # Create an array of zeors with the same shape as b</pre><label>KẾT QUẢ</label><pre class="output">array([[0, 0, 0],
+       [0, 0, 0]])
+</pre></article><article><h2>Cell 148 · Arrays</h2><label>PYTHON</label><pre>np.ones((10,1))   # Create an array of all ones</pre><label>KẾT QUẢ</label><pre class="output">array([[1.],
+       [1.],
+       [1.],
+       [1.],
+       [1.],
+       [1.],
+       [1.],
+       [1.],
+       [1.],
+       [1.]])
+</pre></article><article><h2>Cell 149 · Arrays</h2><label>PYTHON</label><pre>np.full((3,3), 7.2) # Create a constant array</pre><label>KẾT QUẢ</label><pre class="output">array([[7.2, 7.2, 7.2],
+       [7.2, 7.2, 7.2],
+       [7.2, 7.2, 7.2]])
+</pre></article><article><h2>Cell 150 · Arrays</h2><label>PYTHON</label><pre>np.eye(4, dtype=int) # Create an identity matrix of integers</pre><label>KẾT QUẢ</label><pre class="output">array([[1, 0, 0, 0],
+       [0, 1, 0, 0],
+       [0, 0, 1, 0],
+       [0, 0, 0, 1]])
+</pre></article><article><h2>Cell 151 · Arrays</h2><label>PYTHON</label><pre>t = np.random.random((4,4,3)) # Create a 3d-array filled with random values
+t</pre><label>KẾT QUẢ</label><pre class="output">array([[[0.37454012, 0.95071431, 0.73199394],
+        [0.59865848, 0.15601864, 0.15599452],
+        [0.05808361, 0.86617615, 0.60111501],
+        [0.70807258, 0.02058449, 0.96990985]],
+
+       [[0.83244264, 0.21233911, 0.18182497],
+        [0.18340451, 0.30424224, 0.52475643],
+        [0.43194502, 0.29122914, 0.61185289],
+        [0.13949386, 0.29214465, 0.36636184]],
+
+       [[0.45606998, 0.78517596, 0.19967378],
+        [0.51423444, 0.59241457, 0.04645041],
+        [0.60754485, 0.17052412, 0.06505159],
+        [0.94888554, 0.96563203, 0.80839735]],
+
+       [[0.30461377, 0.09767211, 0.68423303],
+        [0.44015249, 0.12203823, 0.49517691],
+        [0.03438852, 0.9093204 , 0.25877998],
+        [0.66252228, 0.31171108, 0.52006802]]])
+</pre></article><article><h2>Cell 152 · Arrays</h2><label>PYTHON</label><pre>t[1,1,2]</pre><label>KẾT QUẢ</label><pre class="output">np.float64(0.5247564316322378)
+</pre></article><article><h2>Cell 154 · Rank-1 Arrays</h2><label>PYTHON</label><pre>a1 = np.array([1,2,3])
+print(f&#x27;\n a1 {a1.shape}:\n&#x27;, a1)
+
+a_col = a1.reshape(-1, 1)
+print(f&#x27;\n a_col {a_col.shape}:\n&#x27;, a_col)
+
+a_row = a1.reshape(1, -1)
+print(f&#x27;\n a_row {a_row.shape}=\n&#x27;, a_row)</pre><label>KẾT QUẢ</label><pre class="output">
+ a1 (3,):
+ [1 2 3]
+
+ a_col (3, 1):
+ [[1]
+ [2]
+ [3]]
+
+ a_row (1, 3)=
+ [[1 2 3]]
+</pre></article><article><h2>Cell 156 · Rank-1 Arrays</h2><label>PYTHON</label><pre>print(&#x27;\n a1 * a1 =&#x27;, np.dot(a1, a1))  # or a1 @ a1
+
+print(&#x27;\n a_row * a1 =&#x27;, a_row @ a1)
+
+print(&#x27;\n a1 * a_col =&#x27;, a1 @ a_col)
+
+print(&#x27;\n a_row * a_col =&#x27;, a_row @ a_col)
+
+print(&#x27;\n a_col * a_row =\n&#x27;, a_col @ a_row)</pre><label>KẾT QUẢ</label><pre class="output">
+ a1 * a1 = 14
+
+ a_row * a1 = [14]
+
+ a1 * a_col = [14]
+
+ a_row * a_col = [[14]]
+
+ a_col * a_row =
+ [[1 2 3]
+ [2 4 6]
+ [3 6 9]]
+</pre></article><article><h2>Cell 160 · Slicing</h2><label>PYTHON</label><pre>import numpy as np
+a = np.array([[1,2,3,4], [5,6,7,8], [9,10,11,12]])
+a</pre><label>KẾT QUẢ</label><pre class="output">array([[ 1,  2,  3,  4],
+       [ 5,  6,  7,  8],
+       [ 9, 10, 11, 12]])
+</pre></article><article><h2>Cell 161 · Slicing</h2><label>PYTHON</label><pre>b = a[:2, 1:3]
+print(b)</pre><label>KẾT QUẢ</label><pre class="output">[[2 3]
+ [6 7]]
+</pre></article><article><h2>Cell 163 · Slicing</h2><label>PYTHON</label><pre>b[0, 0] = 77777
+a</pre><label>KẾT QUẢ</label><pre class="output">array([[    1, 77777,     3,     4],
+       [    5,     6,     7,     8],
+       [    9,    10,    11,    12]])
+</pre></article><article><h2>Cell 165 · Slicing</h2><label>PYTHON</label><pre>a = np.array([[1,2,3,4], [5,6,7,8], [9,10,11,12]])
+a</pre><label>KẾT QUẢ</label><pre class="output">array([[ 1,  2,  3,  4],
+       [ 5,  6,  7,  8],
+       [ 9, 10, 11, 12]])
+</pre></article><article><h2>Cell 166 · Slicing</h2><label>PYTHON</label><pre>b = a[:2, 1:3]
+b = 2*b
+print(b)</pre><label>KẾT QUẢ</label><pre class="output">[[ 4  6]
+ [12 14]]
+</pre></article><article><h2>Cell 167 · Slicing</h2><label>PYTHON</label><pre>b[0, 0] = 77777
+a</pre><label>KẾT QUẢ</label><pre class="output">array([[ 1,  2,  3,  4],
+       [ 5,  6,  7,  8],
+       [ 9, 10, 11, 12]])
+</pre></article><article><h2>Cell 169 · Slicing</h2><label>PYTHON</label><pre>a = np.array([[1,2,3,4], [5,6,7,8], [9,10,11,12]])
+a</pre><label>KẾT QUẢ</label><pre class="output">array([[ 1,  2,  3,  4],
+       [ 5,  6,  7,  8],
+       [ 9, 10, 11, 12]])
+</pre></article><article><h2>Cell 171 · Slicing</h2><label>PYTHON</label><pre>row_r1 = a[1, :]    # Rank 1 view of the second row of a  
+row_r2 = a[1:2, :]  # Rank 2 view of the second row of a
+row_r3 = a[[1], :]  # Rank 2 view of the second row of a
+
+print(row_r1, &#x27;shape=&#x27;, row_r1.shape)
+print(row_r2, &#x27;shape=&#x27;, row_r2.shape)
+print(row_r3, &#x27;shape=&#x27;, row_r3.shape)</pre><label>KẾT QUẢ</label><pre class="output">[5 6 7 8] shape= (4,)
+[[5 6 7 8]] shape= (1, 4)
+[[5 6 7 8]] shape= (1, 4)
+</pre></article><article><h2>Cell 172 · Slicing</h2><label>PYTHON</label><pre>col_r1 = a[:, 1]
+col_r2 = a[:, 1:2]
+
+print(col_r1, col_r1.shape)
+print(col_r2, col_r2.shape)</pre><label>KẾT QUẢ</label><pre class="output">[ 2  6 10] (3,)
+[[ 2]
+ [ 6]
+ [10]] (3, 1)
+</pre></article><article><h2>Cell 174 · Integer array indexing </h2><label>PYTHON</label><pre>a = np.array([[1,2], [3, 4], [5, 6]])
+print(a)</pre><label>KẾT QUẢ</label><pre class="output">[[1 2]
+ [3 4]
+ [5 6]]
+</pre></article><article><h2>Cell 175 · Integer array indexing </h2><label>PYTHON</label><pre>print(a[[0, 1, 2], [0, 1, 0]])
+
+print(np.array([a[0, 0], a[1, 1], a[2, 0]]))</pre><label>KẾT QUẢ</label><pre class="output">[1 4 5]
+[1 4 5]
+</pre></article><article><h2>Cell 176 · Integer array indexing </h2><label>PYTHON</label><pre>print(a[[0, 0], [1, 1]])
+
+print(np.array([a[0, 1], a[0, 1]]))</pre><label>KẾT QUẢ</label><pre class="output">[2 2]
+[2 2]
+</pre></article><article><h2>Cell 178 · Integer array indexing </h2><label>PYTHON</label><pre>a = np.array([[1,2,3], [4,5,6], [7,8,9], [10, 11, 12]])
+a</pre><label>KẾT QUẢ</label><pre class="output">array([[ 1,  2,  3],
+       [ 4,  5,  6],
+       [ 7,  8,  9],
+       [10, 11, 12]])
+</pre></article><article><h2>Cell 179 · Integer array indexing </h2><label>PYTHON</label><pre>b = np.array([0, 2, 0, 1])
+print(np.arange(4))
+print(b)
+
+a[np.arange(4), b]</pre><label>KẾT QUẢ</label><pre class="output">[0 1 2 3]
+[0 2 0 1]
+array([ 1,  6,  7, 11])
+</pre></article><article><h2>Cell 180 · Integer array indexing </h2><label>PYTHON</label><pre>a[np.arange(4), b] += 1000
+a</pre><label>KẾT QUẢ</label><pre class="output">array([[1001,    2,    3],
+       [   4,    5, 1006],
+       [1007,    8,    9],
+       [  10, 1011,   12]])
+</pre></article><article><h2>Cell 182 · Boolean array indexing</h2><label>PYTHON</label><pre>a = np.array([[1,2], [3, 4], [5, 6]])
+print(&#x27;a=\n&#x27;, repr(a))
+bool_idx = (a &gt; 2)  # Find the elements of &#x27;a&#x27; that are larger than 2;
+
+bool_idx</pre><label>KẾT QUẢ</label><pre class="output">a=
+ array([[1, 2],
+       [3, 4],
+       [5, 6]])
+array([[False, False],
+       [ True,  True],
+       [ True,  True]])
+</pre></article><article><h2>Cell 183 · Boolean array indexing</h2><label>PYTHON</label><pre>a[a&gt;2]</pre><label>KẾT QUẢ</label><pre class="output">array([3, 4, 5, 6])
+</pre></article><article><h2>Cell 187 · Datatypes</h2><label>PYTHON</label><pre>x = np.array([1, 2])  # Let numpy choose the datatype
+y = np.array([1.0, 2.0])  # Let numpy choose the datatype
+z = np.array([1, 2], dtype=np.int64)  # Force a particular datatype
+
+x.dtype, y.dtype, z.dtype</pre><label>KẾT QUẢ</label><pre class="output">(dtype(&#x27;int64&#x27;), dtype(&#x27;float64&#x27;), dtype(&#x27;int64&#x27;))
+</pre></article><article><h2>Cell 191 · Elementwise operations</h2><label>PYTHON</label><pre>x = np.array([[1,2],[3,4]], dtype=np.float64)
+y = np.array([[5,6],[7,8]], dtype=np.float64)
+
+print(x + y)
+print(np.add(x, y))</pre><label>KẾT QUẢ</label><pre class="output">[[ 6.  8.]
+ [10. 12.]]
+[[ 6.  8.]
+ [10. 12.]]
+</pre></article><article><h2>Cell 192 · Elementwise operations</h2><label>PYTHON</label><pre>print(x - y)
+print(np.subtract(x, y))</pre><label>KẾT QUẢ</label><pre class="output">[[-4. -4.]
+ [-4. -4.]]
+[[-4. -4.]
+ [-4. -4.]]
+</pre></article><article><h2>Cell 193 · Elementwise operations</h2><label>PYTHON</label><pre>print(x * y)
+print(np.multiply(x, y))</pre><label>KẾT QUẢ</label><pre class="output">[[ 5. 12.]
+ [21. 32.]]
+[[ 5. 12.]
+ [21. 32.]]
+</pre></article><article><h2>Cell 194 · Elementwise operations</h2><label>PYTHON</label><pre>print(x / y)
+print(np.divide(x, y))</pre><label>KẾT QUẢ</label><pre class="output">[[0.2        0.33333333]
+ [0.42857143 0.5       ]]
+[[0.2        0.33333333]
+ [0.42857143 0.5       ]]
+</pre></article><article><h2>Cell 195 · Elementwise operations</h2><label>PYTHON</label><pre>print(np.sqrt(x))</pre><label>KẾT QUẢ</label><pre class="output">[[1.         1.41421356]
+ [1.73205081 2.        ]]
+</pre></article><article><h2>Cell 198 · Inner products</h2><label>PYTHON</label><pre>v = np.array([9,10])
+w = np.array([11, 12])
+
+print(v.dot(w))
+print(np.dot(v, w))</pre><label>KẾT QUẢ</label><pre class="output">219
+219
+</pre></article><article><h2>Cell 199 · Inner products</h2><label>PYTHON</label><pre>X = np.array([[1,2],[3,4]])
+print(&#x27;X =\n&#x27;, repr(X)) # The repr() function returns a printable representation of the given object.
+
+print(&#x27;Xv =&#x27;, x.dot(v))</pre><label>KẾT QUẢ</label><pre class="output">X =
+ array([[1, 2],
+       [3, 4]])
+Xv = [29. 67.]
+</pre></article><article><h2>Cell 200 · Inner products</h2><label>PYTHON</label><pre>Y = np.array([[5,6],[7,8]])
+print(&#x27;Y= \n&#x27;, repr(Y))
+
+print(&#x27;XY =\n&#x27;, X.dot(Y))</pre><label>KẾT QUẢ</label><pre class="output">Y= 
+ array([[5, 6],
+       [7, 8]])
+XY =
+ [[19 22]
+ [43 50]]
+</pre></article><article><h2>Cell 202 · Inner products</h2><label>PYTHON</label><pre>x = np.array([[1,2],[3,4]])
+
+print(np.sum(x))  # Compute sum of all elements
+print(np.sum(x, axis=0))  # Compute sum of each column
+print(np.sum(x, axis=1) ) # Compute sum of each row</pre><label>KẾT QUẢ</label><pre class="output">10
+[4 6]
+[3 7]
+</pre></article><article><h2>Cell 204 · Inner products</h2><label>PYTHON</label><pre>print(x)
+print(x.T)
+print(np.transpose(x))</pre><label>KẾT QUẢ</label><pre class="output">[[1 2]
+ [3 4]]
+[[1 3]
+ [2 4]]
+[[1 3]
+ [2 4]]
+</pre></article><article><h2>Cell 205 · Inner products</h2><label>PYTHON</label><pre>v = np.array([1,2,3]) # rank 1
+print(v.reshape(1, -1)) # row vector
+print(v.reshape(-1, 1)) # column vector</pre><label>KẾT QUẢ</label><pre class="output">[[1 2 3]]
+[[1]
+ [2]
+ [3]]
+</pre></article><article><h2>Cell 208 · Broadcasting</h2><label>PYTHON</label><pre>x = np.array([[1,2,3], [4,5,6], [7,8,9], [10, 11, 12]])
+v = np.array([1, 0, 1])
+y = np.empty_like(x)   # Create an empty matrix with the same shape as x
+
+for i in range(4):
+    y[i, :] = x[i, :] + v
+
+y</pre><label>KẾT QUẢ</label><pre class="output">array([[ 2,  2,  4],
+       [ 5,  5,  7],
+       [ 8,  8, 10],
+       [11, 11, 13]])
+</pre></article><article><h2>Cell 210 · Broadcasting</h2><label>PYTHON</label><pre>vv = np.tile(v, (4, 1))  # Stack 4 copies of v on top of each other
+vv</pre><label>KẾT QUẢ</label><pre class="output">array([[1, 0, 1],
+       [1, 0, 1],
+       [1, 0, 1],
+       [1, 0, 1]])
+</pre></article><article><h2>Cell 211 · Broadcasting</h2><label>PYTHON</label><pre>y = x + vv  # Add x and vv elementwise
+y</pre><label>KẾT QUẢ</label><pre class="output">array([[ 2,  2,  4],
+       [ 5,  5,  7],
+       [ 8,  8, 10],
+       [11, 11, 13]])
+</pre></article><article><h2>Cell 213 · Broadcasting</h2><label>PYTHON</label><pre>
+x = np.array([[1,2,3], [4,5,6], [7,8,9], [10, 11, 12]])
+v = np.array([1, 0, 1])
+y = x + v  # Add v to each row of x using broadcasting
+
+print(&#x27;shapes: &#x27;, x.shape, v.shape)
+y</pre><label>KẾT QUẢ</label><pre class="output">shapes:  (4, 3) (3,)
+array([[ 2,  2,  4],
+       [ 5,  5,  7],
+       [ 8,  8, 10],
+       [11, 11, 13]])
+</pre></article><article><h2>Cell 215 · Broadcasting</h2><label>PYTHON</label><pre>v = np.array([1,2,3])  # v has a shape of (3,)
+w = np.array([4,5])    # w has a shapeof (2,)
+
+np.reshape(v, (3, 1)) * w</pre><label>KẾT QUẢ</label><pre class="output">array([[ 4,  5],
+       [ 8, 10],
+       [12, 15]])
+</pre></article><article><h2>Cell 216 · Broadcasting</h2><label>PYTHON</label><pre>print(x)
+x * 2</pre><label>KẾT QUẢ</label><pre class="output">[[ 1  2  3]
+ [ 4  5  6]
+ [ 7  8  9]
+ [10 11 12]]
+array([[ 2,  4,  6],
+       [ 8, 10, 12],
+       [14, 16, 18],
+       [20, 22, 24]])
+</pre></article><footer>Nguồn: <a href="https://github.com/aim-lab/mlh-course-material/tree/master/tutorials/BME-336546-C01-Python%2C%20numpy%20and%20friends">aim-lab/mlh-course-material</a><br>Ảnh chụp trang báo cáo kết quả; thao tác Git được thực hiện bằng CLI, không phải giao diện Sourcetree.</footer></main></html>
