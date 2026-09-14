@@ -2,14 +2,13 @@
 
 ## Tư liệu dùng để nộp
 
-- `screenshots/`: 12 ảnh PNG chụp các trang báo cáo từ kết quả chạy thật.
 - `report/index.html`: mở bằng trình duyệt để đọc báo cáo.
 - `report/all_python.html`: toàn bộ 112 ô mã cùng đầu ra thực tế.
 - `python_tutorial.py`: mã Python độc lập, đã chạy kiểm tra.
 - `python_results.txt`, `git_results.txt`, `remote_verified.json`: nhật ký và bằng chứng kiểm tra.
 - `GitTutorial.bundle`: bản sao đầy đủ lịch sử Git, có thể clone lại.
 
-Ảnh là screenshot của báo cáo HTML, không phải screenshot giao diện Sourcetree hay trang GitHub. Git được thực hiện bằng CLI. Các commit ghi tác giả `Tutorial Automation <tutorial@example.invalid>` để thể hiện rõ đây là thao tác tự động, không giả danh danh tính cá nhân của sinh viên.
+Git được thực hiện bằng CLI. Các commit ghi tác giả `Tutorial Automation <tutorial@example.invalid>` để thể hiện rõ đây là thao tác tự động, không giả danh danh tính cá nhân của sinh viên.
 
 ## Kết quả Git
 
